@@ -1,6 +1,7 @@
 // src/app/components/sections/Hero.tsx
 import React from 'react';
-import { FaGithub, FaLinkedin, FaCode } from 'react-icons/fa';
+// Import the new icon
+import { FaGithub, FaLinkedin, FaFileAlt } from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
 import { motion } from 'framer-motion';
 
@@ -45,18 +46,49 @@ const Hero = () => {
         transition={{ duration: 0.5, delay: 0.5 }}
         className="flex space-x-6 mt-4"
       >
-        <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="icon-link">
+        <a
+          href="https://github.com/YOUR_GITHUB_USERNAME" // Replace with your GitHub URL
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          className="icon-link"
+        >
           <FaGithub />
         </a>
-        <a href="https://linkedin.com/in/YOUR_LINKEDIN_PROFILE" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="icon-link">
+        <a
+          href="https://linkedin.com/in/YOUR_LINKEDIN_PROFILE" // Replace with your LinkedIn URL
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          className="icon-link"
+        >
           <FaLinkedin />
         </a>
-        <a href="https://leetcode.com/YOUR_LEETCODE_USERNAME" target="_blank" rel="noopener noreferrer" aria-label="LeetCode" className="icon-link">
+        <a
+          href="https://leetcode.com/YOUR_LEETCODE_USERNAME" // Replace with your LeetCode URL
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LeetCode"
+          className="icon-link"
+        >
           <SiLeetcode />
         </a>
+        {/* --- Added Resume Link --- */}
+        <a
+          // IMPORTANT: Replace this href with the path to your resume in the /public folder
+          // OR your Google Docs shareable link
+          href="/Mahmoud_Abdrabbou_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Resume"
+          className="icon-link"
+        >
+          <FaFileAlt />
+        </a>
+        {/* --- End Added Resume Link --- */}
       </motion.div>
-       {/* Optional: Add a subtle scroll down indicator */}
-       <motion.div
+      {/* Optional: Add a subtle scroll down indicator */}
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 1.5, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
@@ -72,4 +104,4 @@ const Hero = () => {
 
 export default Hero;
 
-// Remember to replace placeholder URLs with your actual links!
+// Remember to replace placeholder URLs (GitHub, LinkedIn, LeetCode, and the Resume href) with your actual links!
