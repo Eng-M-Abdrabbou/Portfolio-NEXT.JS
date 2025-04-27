@@ -11,11 +11,14 @@ const Hero = () => {
     <div id="home" className="hero-section min-h-screen flex flex-col justify-center items-start max-w-5xl mx-auto px-6 pt-32 pb-16 md:pt-40 relative">
       <GradientSpots />
       <div className="flex items-center mt-9">
-        <img
-          src="/img/hero.jpg"
-          alt="Mahmoud Abdrabbou"
-          className="rounded-full w-44 h-44 mr-4 object-cover"
-        />
+        <div className="relative tooltip-container">
+          <img
+            src="/img/hero.jpg"
+            alt="Mahmoud Abdrabbou"
+            className="rounded-full w-44 h-44 mr-4 object-cover tooltip-trigger"
+          />
+          <div className="tooltip">The handsome guy is called Mr. Rico 😺</div>
+        </div>
         <div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -48,7 +51,7 @@ const Hero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.4 }}
-        className="text-base md:text-lg max-w-xl text-light-slate mb-8"
+        className="text-base md:text-lg max-w-5xl text-light-slate mb-8"
       >
         I'm a passionate Full Stack Developer specializing in building efficient and scalable solutions. Currently focused on leveraging my skills in Java, Python, React, and Node.js to create impactful applications. Experienced in optimizing systems, integrating diverse platforms, and driving innovation.
       </motion.p>
@@ -102,17 +105,17 @@ const Hero = () => {
       <div className="flex flex-row items-center mt-8 space-x-4">
         <div className="bg-dark-slate rounded-md p-4 w-1/3">
           <p className="text-light-slate text-center">
-            "He who has a why to live can bear almost any how." — Friedrich Nietzsche
+            "The only true wisdom is in knowing you know nothing." ~ Socrates
           </p>
         </div>
         <div className="bg-dark-slate rounded-md p-4 w-1/3">
           <p className="text-light-slate text-center">
-            "The only true wisdom is in knowing you know nothing." — Socrates
+            "He who has a why to live can bear almost any how." ~ Friedrich Nietzsche
           </p>
         </div>
         <div className="bg-dark-slate rounded-md p-4 w-1/3">
           <p className="text-light-slate text-center">
-            "How you interpret the world shapes its reality." ~Mahmoud Abdrabbou"
+            "How you interpret the world shapes its reality." ~ Mahmoud Abdrabbou
           </p>
         </div>
       </div>
@@ -122,7 +125,7 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 1.5, ease: 'easeInOut' }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce"
       >
         <svg className="w-6 h-6 text-neon-green" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
           <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
