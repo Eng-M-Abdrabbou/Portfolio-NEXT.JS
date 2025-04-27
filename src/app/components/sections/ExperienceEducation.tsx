@@ -15,7 +15,7 @@ const ExperienceEducation = () => {
 
       <div className="flex justify-center mb-8 border border-light-slate rounded-lg overflow-hidden"> {/* Added border and rounded corners */}
         <button
-          className={`flex-1 px-6 py-3 text-lg font-medium text-center focus:outline-none transition-colors duration-300 ${
+          className={`flex-1 px-6 py-1 text-lg font-medium text-center focus:outline-none transition-colors duration-300 ${
             activeTab === 'work'
               ? 'bg-light-slate text-navy' // Adjusted active colors
               : 'bg-transparent text-light-slate hover:bg-light-navy' // Adjusted inactive colors
@@ -25,7 +25,7 @@ const ExperienceEducation = () => {
           Work
         </button>
         <button
-          className={`flex-1 px-6 py-3 text-lg font-medium text-center focus:outline-none transition-colors duration-300 ${
+          className={`flex-1 px-6 py-1 text-lg font-medium text-center focus:outline-none transition-colors duration-300 ${
             activeTab === 'education'
               ? 'bg-light-slate text-navy' // Adjusted active colors
               : 'bg-transparent text-light-slate hover:bg-light-navy' // Adjusted inactive colors
@@ -44,7 +44,7 @@ const ExperienceEducation = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative pl-8 border-l-2 border-light-navy" // Timeline line
+            className="relative pl-12 border-l-2 border-light-navy" // Timeline line
           >
             {/* Work Experience Timeline Items */}
             {/* Existing work experience content adapted into timeline items */}
