@@ -1,5 +1,6 @@
 // src/app/components/sections/Hero.tsx
 import React from 'react';
+import GradientSpots from '../../components/GradientSpots';
 // Import the new icon
 import { FaGithub, FaLinkedin, FaFileAlt } from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
@@ -7,7 +8,8 @@ import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <div id="home" className="min-h-screen flex flex-col justify-center items-start max-w-4xl mx-auto px-6 pt-32 pb-16 md:pt-40 bg-iblue-400">
+    <div id="home" className="hero-section min-h-screen flex flex-col justify-center items-start max-w-4xl mx-auto px-6 pt-32 pb-16 md:pt-40 relative">
+      <GradientSpots />
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -21,7 +23,7 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
         className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-lightest-slate mb-3"
-      >
+       >
         Mahmoud Abdrabbou.
       </motion.h1>
       <motion.h2
@@ -29,7 +31,7 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.3 }}
         className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate mb-6"
-      >
+       >
         <span className="neon-text">Software Engineer</span>
       </motion.h2>
       <motion.p
@@ -41,7 +43,7 @@ const Hero = () => {
         I'm a passionate Full Stack Developer specializing in building efficient and scalable solutions. Currently focused on leveraging my skills in Java, Python, React, and Node.js to create impactful applications. Experienced in optimizing systems, integrating diverse platforms, and driving innovation.
       </motion.p>
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 1, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.5 }}
         className="flex space-x-6 mt-4"
@@ -91,7 +93,7 @@ const Hero = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 1.5, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
+        transition={{ duration: 0.5, delay: 1.5, ease: 'easeInOut' }}
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
       >
         <svg className="w-6 h-6 text-neon-green" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
