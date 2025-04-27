@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <div id="home" className="min-h-screen flex flex-col justify-center items-start max-w-4xl mx-auto px-6 pt-32 pb-16 md:pt-40">
+    <div id="home" className="min-h-screen flex flex-col justify-center items-start max-w-4xl mx-auto px-6 pt-32 pb-16 md:pt-40 bg-iblue-400">
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

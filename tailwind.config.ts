@@ -34,6 +34,10 @@ const config: Config = {
       },
       backdropBlur: {
           xs: '2px',
+      },
+      backgroundImage: {
+          'hero-gradient': 'linear-gradient(to right, #0a192f, #112240)',
+          'new-gradient': 'linear-gradient(to right, #0a192f, #112240, #64ffda)',
       }
     },
   },

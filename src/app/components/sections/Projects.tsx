@@ -65,12 +65,16 @@ const ProjectCard = ({ title, description, tags, github, live }: typeof projects
 
 const Projects = () => {
   return (
-    <section id="projects" className="section-container">
-      <h2 className="section-heading">Featured Projects</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projectsData.map((project, index) => (
-          <ProjectCard key={index} {...project} />
-        ))}
+    <section id="projects" className="w-screen h-[200dvh]">
+      <div className="top-[70px] sticky">
+        <h2 className="bg-clip-text bg-gradient-to-b from-white/80 to-white/20 bg-opacity-50 text-4xl text-center text-transparent md:text-7xl">
+          Projects
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projectsData.map((project, index) => (
+            <ProjectCard key={index} {...project} />
+          ))}
+        </div>
       </div>
     </section>
   );

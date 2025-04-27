@@ -51,7 +51,7 @@ const SkillCategory = ({ title, skills }: { title: string; skills: string[] }) =
 
 const Skills = () => {
   return (
-    <section id="skills" className="section-container">
+    <section id="skills" className="w-screen h-[200dvh]">
       <h2 className="section-heading">Skills & Activities</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
