@@ -8,32 +8,32 @@ import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <div id="home" className="hero-section min-h-screen flex flex-col justify-center items-start max-w-4xl mx-auto px-6 pt-32 pb-16 md:pt-40 relative">
+    <div id="home" className="hero-section min-h-screen flex flex-col justify-center items-start max-w-5xl mx-auto px-6 pt-32 pb-16 md:pt-40 relative">
       <GradientSpots />
-      <div className="flex items-center">
+      <div className="flex items-center mt-9">
         <img
-          src="/img/hero.png"
+          src="/img/hero.jpg"
           alt="Mahmoud Abdrabbou"
-          className="rounded-full w-32 h-32 mr-4"
+          className="rounded-full w-44 h-44 mr-4 object-cover"
         />
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-lg text-neon-green font-mono mb-3"
-        >
-          Hi, my name is
-        </motion.p>
-      </div>
-      <div className="flex items-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-lightest-slate mb-3 ml-16"
-        >
-          Mahmoud Abdrabbou.
-        </motion.h1>
+        <div>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-lg text-neon-green font-mono mb-3"
+          >
+            Hi, my name is
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-lightest-slate mb-3"
+          >
+            Mahmoud Abdrabbou.
+          </motion.h1>
+        </div>
       </div>
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
@@ -42,6 +42,7 @@ const Hero = () => {
         className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate mb-6"
       >
         <span className="neon-text">Software Engineer</span>
+        <div className="text-sm text-light-slate">Based in UAE (🇦🇪)</div>
       </motion.h2>
       <motion.p
         initial={{ opacity: 0, y: 20 }}
@@ -115,6 +116,7 @@ const Hero = () => {
           </p>
         </div>
       </div>
+      <br />
       {/* Optional: Add a subtle scroll down indicator */}
       <motion.div
         initial={{ opacity: 0 }}
