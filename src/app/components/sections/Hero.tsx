@@ -10,28 +10,37 @@ const Hero = () => {
   return (
     <div id="home" className="hero-section min-h-screen flex flex-col justify-center items-start max-w-4xl mx-auto px-6 pt-32 pb-16 md:pt-40 relative">
       <GradientSpots />
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        className="text-lg text-neon-green font-mono mb-3"
-      >
-        Hi, my name is
-      </motion.p>
-      <motion.h1
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-lightest-slate mb-3"
-       >
-        Mahmoud Abdrabbou.
-      </motion.h1>
+      <div className="flex items-center">
+        <img
+          src="/img/hero.png"
+          alt="Mahmoud Abdrabbou"
+          className="rounded-full w-32 h-32 mr-4"
+        />
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="text-lg text-neon-green font-mono mb-3"
+        >
+          Hi, my name is
+        </motion.p>
+      </div>
+      <div className="flex items-center">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-lightest-slate mb-3 ml-16"
+        >
+          Mahmoud Abdrabbou.
+        </motion.h1>
+      </div>
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.3 }}
         className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate mb-6"
-       >
+      >
         <span className="neon-text">Software Engineer</span>
       </motion.h2>
       <motion.p
@@ -89,6 +98,23 @@ const Hero = () => {
         </a>
         {/* --- End Added Resume Link --- */}
       </motion.div>
+      <div className="flex flex-row items-center mt-8 space-x-4">
+        <div className="bg-dark-slate rounded-md p-4 w-1/3">
+          <p className="text-light-slate text-center">
+            "He who has a why to live can bear almost any how." — Friedrich Nietzsche
+          </p>
+        </div>
+        <div className="bg-dark-slate rounded-md p-4 w-1/3">
+          <p className="text-light-slate text-center">
+            "The only true wisdom is in knowing you know nothing." — Socrates
+          </p>
+        </div>
+        <div className="bg-dark-slate rounded-md p-4 w-1/3">
+          <p className="text-light-slate text-center">
+            "How you interpret the world shapes its reality." ~Mahmoud Abdrabbou"
+          </p>
+        </div>
+      </div>
       {/* Optional: Add a subtle scroll down indicator */}
       <motion.div
         initial={{ opacity: 0 }}
