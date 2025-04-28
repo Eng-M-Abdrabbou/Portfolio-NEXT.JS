@@ -44,7 +44,7 @@ const ExperienceEducation = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative pl-12 border-l-2 border-light-navy" // Timeline line
+            className="relative pl-2 border-l-2 border-light-navy" // Timeline line
           >
             {/* Work Experience Timeline Items */}
             {/* Existing work experience content adapted into timeline items */}
@@ -52,7 +52,8 @@ const ExperienceEducation = () => {
               {/* Replace with company icon/image */}
               <div className="absolute -left-9 mt-1 w-14 h-14 rounded-full bg-light-navy border-2 border-navy flex items-center justify-center">
                 {/* Placeholder for IEEE icon */}
-                <span className="text-lightest-slate text-xs">IEEE</span>
+                {/* <span className="text-lightest-slate text-xs">IEEE</span> */}
+                <img src="/img/ieee.jpg" alt="IEEE Logo" className="w-full h-full rounded-full object-cover" />
                 {/* You can replace the span with an img tag for the logo */}
                 {/* <img src="/path/to/ieee-logo.png" alt="IEEE Logo" className="w-full h-full rounded-full object-cover" /> */}
               </div>
@@ -75,7 +76,8 @@ const ExperienceEducation = () => {
               {/* Replace with company icon/image */}
               <div className="absolute -left-9 mt-1 w-14 h-14 rounded-full bg-light-navy border-2 border-navy flex items-center justify-center">
                 {/* Placeholder for Federal Transformers Company LLC icon */}
-                <span className="text-lightest-slate text-xs text-center">FTC</span>
+                {/* <span className="text-lightest-slate text-xs text-center">FTC</span> */}
+                <img src="/img/ftc.jpg" alt="Federal Transformers Company LLC Logo" className="w-full h-full rounded-full object-cover" />
                 {/* You can replace the span with an img tag for the logo */}
                 {/* <img src="/path/to/ftc-logo.png" alt="Federal Transformers Company LLC Logo" className="w-full h-full rounded-full object-cover" /> */}
               </div>
@@ -103,7 +105,7 @@ const ExperienceEducation = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative pl-12 border-l-2 border-light-navy" // Timeline line
+            className="relative pl-2 border-l-2 border-light-navy" // Timeline line
           >
             {/* Education Timeline Items */}
             {/* Existing education content adapted into timeline items */}
@@ -111,7 +113,8 @@ const ExperienceEducation = () => {
                {/* Replace with university icon/image */}
                <div className="absolute -left-9 mt-1 w-14 h-14 rounded-full bg-light-navy border-2 border-navy flex items-center justify-center">
                  {/* Placeholder for Al Ain University icon */}
-                 <span className="text-lightest-slate text-xs text-center">AAU</span>
+                 {/* <span className="text-lightest-slate text-xs text-center">AAU</span> */}
+                 <img src="/img/aau.jpg" alt="Al Ain University Logo" className="w-full h-full rounded-full object-cover" />
                  {/* You can replace the span with an img tag for the logo */}
                  {/* <img src="/path/to/aau-logo.png" alt="Al Ain University Logo" className="w-full h-full rounded-full object-cover" /> */}
                </div>
