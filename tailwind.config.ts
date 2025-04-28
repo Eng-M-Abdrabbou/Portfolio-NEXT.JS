@@ -25,11 +25,25 @@ const config: Config = {
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out forwards',
+        'shake': 'shake 0.5s infinite',
       },
       keyframes: {
         fadeIn: {
           '0%': { opacity: '0', transform: 'translateY(10px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        shake: {
+          '0%': { transform: 'translate(0, 0)' },
+          '10%': { transform: 'translate(-3px, -2px) rotate(-2deg)' },
+          '20%': { transform: 'translate(2px, -3px) rotate(3deg)' },
+          '30%': { transform: 'translate(-1px, 2px) rotate(-2deg)' },
+          '40%': { transform: 'translate(3px, -1px) rotate(1deg)' },
+          '50%': { transform: 'translate(-2px, 3px) rotate(-3deg)' },
+          '60%': { transform: 'translate(1px, -2px) rotate(2deg)' },
+          '70%': { transform: 'translate(-3px, 1px) rotate(-1deg)' },
+          '80%': { transform: 'translate(2px, 2px) rotate(3deg)' },
+          '90%': { transform: 'translate(-1px, -3px) rotate(-2deg)' },
+          '100%': { transform: 'translate(0, 0)' },
         },
       },
       backdropBlur: {
@@ -42,5 +56,8 @@ const config: Config = {
     },
   },
   plugins: [],
+  safelist: [
+    'shake',
+  ],
 };
 export default config;

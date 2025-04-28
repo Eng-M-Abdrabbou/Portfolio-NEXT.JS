@@ -26,7 +26,20 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-lg text-neon-green font-mono mb-3"
           >
-            Hi, my name is
+            Hi <motion.span
+              animate={{
+                x: [0, -5, 5, -5, 0], // Smoother horizontal wave
+                rotate: [0, -5, 5, -5, 0], // Gentle rotation
+              }}
+              transition={{
+                duration: 1.5, // Longer duration for smoother motion
+                repeat: Infinity,
+                ease: "easeInOut" // Smoother easing
+              }}
+              style={{ display: 'inline-block' }} // Keep inline-block for proper positioning
+            >
+              👋
+            </motion.span>, my name is
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
