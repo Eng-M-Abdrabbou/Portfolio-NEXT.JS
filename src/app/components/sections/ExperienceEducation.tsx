@@ -103,7 +103,7 @@ const ExperienceEducation = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative pl-8 border-l-2 border-light-navy" // Timeline line
+            className="relative pl-12 border-l-2 border-light-navy" // Timeline line
           >
             {/* Education Timeline Items */}
             {/* Existing education content adapted into timeline items */}
