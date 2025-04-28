@@ -30,7 +30,6 @@
   }
 }
 
-
 @layer components {
   .section-heading {
     @apply text-2xl md:text-3xl font-semibold text-lightest-slate mb-8 flex items-center;
@@ -40,7 +39,7 @@
     @apply block h-[1px] w-full md:w-64 ml-4 bg-lightest-navy;
   }
   .section-container {
-     @apply min-h-screen flex flex-col justify-center max-w-4xl mx-auto px-6 py-24 md:py-32;
+    @apply min-h-screen flex flex-col justify-center max-w-4xl mx-auto px-6 py-24 md:py-32;
   }
   .neon-text {
     @apply text-neon-green;
@@ -53,7 +52,7 @@
     @apply absolute bottom-0 left-0 w-0 h-[1px] bg-neon-green transition-all duration-300 ease-out;
   }
   .link-styling:hover::after, .link-styling:focus::after {
-     @apply w-full;
+    @apply w-full;
   }
   .tag {
     @apply inline-block bg-lightest-navy/10 text-neon-green text-xs font-mono px-3 py-1 rounded-full mr-2 mb-2;
@@ -61,71 +60,39 @@
   .icon-link {
     @apply text-light-slate hover:text-neon-green transition-colors duration-300 text-2xl;
   }
-.hero-section:hover h1 {
-  transform: translateY(-5px);
-  transition: transform 0.3s ease-in-out;
-}
-
-.hero-section:hover h2 {
-  transform: translateY(5px);
-  transition: transform 0.3s ease-in-out;
-}
-}
-.tooltip {
-  visibility: hidden;
-  width: 180px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 200%;
-  left: 50%;
-  margin-left: 00px;
-  margin-bottom: -50px;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.tooltip::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: black transparent transparent transparent;
-}
-
-.tooltip-trigger:hover .tooltip {
-  visibility: visible;
-  opacity: 1;
-}
-.tooltip-container {
-  position: relative;
-  display: inline-block; /* Or any other appropriate display value */
-}
-
-.tooltip {
-  visibility: hidden;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.tooltip-container:hover .tooltip {
-  visibility: visible;
-  opacity: 1;
+  .hero-section:hover h1 {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease-in-out;
+  }
+  .hero-section:hover h2 {
+    transform: translateY(5px);
+    transition: transform 0.3s ease-in-out;
+  }
+  .skill-card {
+    @apply bg-lightest-navy/10 backdrop-blur-sm rounded-lg p-3 border border-lightest-navy/30 hover:border-neon-green hover:bg-lightest-navy/20 transition-all duration-300;
+  }
+  .skill-card-title {
+    @apply text-sm text-light-slate mb-1;
+  }
+  .skill-card-icon {
+    @apply text-neon-green;
+  }
+  .skill-category {
+    @apply mb-8;
+  }
+  .skill-category-title {
+    @apply text-xl font-semibold text-lightest-slate mb-4;
+  }
+  .skill-category-content {
+    @apply grid grid-cols-2 sm:grid-cols-3 gap-3;
+  }
+  .achievement-card {
+    @apply bg-lightest-navy/10 backdrop-blur-sm rounded-lg p-4 border border-lightest-navy/30;
+  }
+  .achievement-card-title {
+    @apply text-xl font-semibold text-lightest-slate mb-4;
+  }
+  .achievement-list {
+    @apply list-disc list-outside space-y-1 pl-5 text-sm text-light-slate;
+  }
 }
