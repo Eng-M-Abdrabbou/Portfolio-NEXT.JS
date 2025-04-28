@@ -106,8 +106,9 @@ const SkillCategory = ({ title, skills, icon }: { title: string; skills: string[
 const Skills = () => {
   return (
     <section id="skills" className="ml-auto mr-auto justify-center w-screen min-h-screen py-16 md:py-24" > {/* Adjusted height and padding */}
-      <h2 className="section-heading flex items-center justify-center">Skills & Activities</h2>
-
+      <h2 className="bg-clip-text bg-gradient-to-b from-white/80 to-white/20 bg-opacity-50 text-4xl text-center text-transparent md:text-7xl">
+        Skills & Activities
+      </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-2 gap-y-8">
         {/* Column 1 */}
         <div>

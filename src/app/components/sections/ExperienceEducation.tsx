@@ -11,8 +11,9 @@ const ExperienceEducation = () => {
 
   return (
     <section id="experience" className="section-container">
-      <h2 className="section-heading">Experience & Education</h2>
-
+      <h2 className="bg-clip-text bg-gradient-to-b from-white/80 to-white/20 bg-opacity-50 text-4xl text-center text-transparent md:text-7xl">
+        Experience & Education
+      </h2>
       <div className="flex justify-center mb-8 border border-light-slate rounded-lg overflow-hidden"> {/* Added border and rounded corners */}
         <button
           className={`flex-1 px-6 py-1 text-lg font-medium text-center focus:outline-none transition-colors duration-300 ${
