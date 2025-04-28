@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <div id="home" className="hero-section min-h-screen flex flex-col justify-center items-start max-w-5xl mx-auto px-6 pt-32 pb-16 md:pt-40 relative">
+    <div id="home" className="mt-auto hero-section min-h-screen flex flex-col justify-center items-start max-w-5xl mx-auto px-6 pt-32 pb-16 md:pt-40 relative">
       <GradientSpots />
       <div className="flex items-center mt-9">
         <div className="relative tooltip-container">
