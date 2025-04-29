@@ -66,7 +66,7 @@ const Hero = () => {
         transition={{ duration: 0.5, delay: 0.4 }}
         className="text-base md:text-lg max-w-5xl text-light-slate mb-8"
       >
-        I'm a passionate Full Stack Developer specializing in building efficient and scalable solutions. Currently focused on leveraging my skills in Java, Python, React, and Node.js to create impactful applications. Experienced in optimizing systems, integrating diverse platforms, and driving innovation.
+       I'm a Full Stack Developer skilled in Java, Python, React, and Node.js. I build reliable systems, streamline integrations, and improve performance.
       </motion.p>
       <motion.div
         initial={{ opacity: 1, y: 20 }}
