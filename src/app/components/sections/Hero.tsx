@@ -1,5 +1,5 @@
 // src/app/components/sections/Hero.tsx
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import GradientSpots from '../../components/GradientSpots';
 // Import the new icon
 import { FaGithub, FaLinkedin, FaFileAlt } from 'react-icons/fa';
@@ -7,15 +7,49 @@ import { SiLeetcode } from 'react-icons/si';
 import { motion } from 'framer-motion';
 
 const Hero = () => {
+  const originalImageSrc = "/img/hero.jpg";
+  const gifImageSrc = "/img/El-Gatito.gif";
+  const [currentImageSrc, setCurrentImageSrc] = useState(originalImageSrc);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseOver = () => {
+    // Clear any existing timer
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+    }
+    // Start a new timer
+    timerRef.current = setTimeout(() => {
+      setCurrentImageSrc(gifImageSrc);
+    }, 800); // 2 seconds delay
+  };
+
+  const handleMouseLeave = () => {
+    // Clear the timer
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+    }
+    // Revert to original image if currently showing the GIF
+    if (currentImageSrc === gifImageSrc) {
+      setCurrentImageSrc(originalImageSrc);
+    }
+  };
+
   return (
     <div id="home" className="mt-auto hero-section min-h-screen flex flex-col justify-center items-start max-w-5xl mx-auto px-6 pt-16 pb-16 md:pt-16 relative">
       <GradientSpots />
       <div className="flex items-center mt-9">
-        <div className="relative tooltip-container">
+        <div className="relative tooltip-container image-container"> {/* Added image-container class */}
+          {/* Circular timeline SVG */}
+          <svg className="circular-timeline" viewBox="0 0 100 100">
+            <circle className="bg-circle" cx="50" cy="50" r="45"></circle>
+            <circle className="progress-circle" cx="50" cy="50" r="45"></circle>
+          </svg>
           <img
-            src="/img/hero.jpg"
+            src={currentImageSrc}
             alt="Mahmoud Abdrabbou"
             className="rounded-full w-44 h-44 mr-4 object-cover tooltip-trigger"
+            onMouseOver={handleMouseOver}
+            onMouseLeave={handleMouseLeave}
           />
           <div className="tooltip">The handsome guy is called Mr. Rico 😺</div>
         </div>
