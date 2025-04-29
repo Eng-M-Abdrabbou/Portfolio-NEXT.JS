@@ -4,6 +4,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Link as ScrollLink } from 'react-scroll';
+import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
@@ -17,8 +18,11 @@ const navItems = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  const isHomePage = pathname === '/';
 
   return (
     <motion.nav
@@ -29,32 +33,48 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo/Name on the left */}
-        <ScrollLink
-          to="home"
-          smooth={true}
-          duration={500}
-          spy={true}
-          offset={-10}
-          className="text-xl font-bold text-neon-green cursor-pointer"
-        >
-          MA.
-        </ScrollLink>
+        {isHomePage ? (
+          <ScrollLink
+            to="home"
+            smooth={true}
+            duration={500}
+            spy={true}
+            offset={-10}
+            className="text-xl font-bold text-neon-green cursor-pointer"
+          >
+            MA.
+          </ScrollLink>
+        ) : (
+          <Link href="/" className="text-xl font-bold text-neon-green cursor-pointer">
+            MA.
+          </Link>
+        )}
 
         {/* Desktop Menu Links */}
         <div className="hidden md:flex space-x-6 items-center">
           {navItems.map((item) => (
-            <ScrollLink
-              key={item.id}
-              to={item.id}
-              smooth={true}
-              duration={500}
-              spy={true}
-              offset={-80} // Adjust offset as needed
-              activeClass="text-neon-green"
-              className="text-light-slate hover:text-neon-green cursor-pointer transition-colors duration-300 text-sm"
-            >
-              {item.name}
-            </ScrollLink>
+            isHomePage ? (
+              <ScrollLink
+                key={item.id}
+                to={item.id}
+                smooth={true}
+                duration={500}
+                spy={true}
+                offset={-80} // Adjust offset as needed
+                activeClass="text-neon-green"
+                className="text-light-slate hover:text-neon-green cursor-pointer transition-colors duration-300 text-sm"
+              >
+                {item.name}
+              </ScrollLink>
+            ) : (
+              <Link
+                key={item.id}
+                href={`/#${item.id}`} // Link to section on home page
+                className="text-light-slate hover:text-neon-green cursor-pointer transition-colors duration-300 text-sm"
+              >
+                {item.name}
+              </Link>
+            )
           ))}
           <Link href="/blog" className="text-light-slate hover:text-neon-green cursor-pointer transition-colors duration-300 text-sm">
             Blog
@@ -82,19 +102,30 @@ const Navbar = () => {
         >
           <div className="flex flex-col items-center space-y-4">
             {navItems.map((item) => (
-              <ScrollLink
-                key={item.id}
-                to={item.id}
-                smooth={true}
-                duration={500}
-                spy={true}
-                offset={-80}
-                activeClass="text-neon-green font-semibold"
-                className="text-light-slate hover:text-neon-green cursor-pointer transition-colors duration-300 block w-full text-center"
-                onClick={toggleMenu} // Close menu on click
-              >
-                {item.name}
-              </ScrollLink>
+              isHomePage ? (
+                <ScrollLink
+                  key={item.id}
+                  to={item.id}
+                  smooth={true}
+                  duration={500}
+                  spy={true}
+                  offset={-80}
+                  activeClass="text-neon-green font-semibold"
+                  className="text-light-slate hover:text-neon-green cursor-pointer transition-colors duration-300 block w-full text-center"
+                  onClick={toggleMenu} // Close menu on click
+                >
+                  {item.name}
+                </ScrollLink>
+              ) : (
+                <Link
+                  key={item.id}
+                  href={`/#${item.id}`} // Link to section on home page
+                  className="text-light-slate hover:text-neon-green cursor-pointer transition-colors duration-300 block w-full text-center"
+                  onClick={toggleMenu} // Close menu on click
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
             <Link href="/blog" className="text-light-slate hover:text-neon-green cursor-pointer transition-colors duration-300 block w-full text-center" onClick={toggleMenu}>
               Blog

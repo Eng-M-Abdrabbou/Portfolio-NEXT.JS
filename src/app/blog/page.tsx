@@ -1,31 +1,32 @@
-// src/app/blog/page.tsx
 import React from 'react';
 import Link from 'next/link';
+import Navbar from '../components/Navbar'; // Import Navbar
 
-const BlogPage = () => {
+import { blogPosts } from './posts';
+
+const BlogIndexPage: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-navy text-lightest-slate p-8">
-      <h1 className="text-4xl font-bold mb-6">Blog</h1>
-      <p className="text-lg text-slate mb-8 text-center max-w-md">
-        Coming Soon! This section will feature articles and insights on software development, technology trends, and personal projects.
-      </p>
-      {/* Add placeholder content or a list of future posts */}
-      <div className="bg-light-navy p-6 rounded-lg shadow-lg mb-4 w-full max-w-lg">
-        <h2 className="text-2xl font-semibold text-neon-green mb-2">Example Post Title</h2>
-        <p className="text-light-slate">A brief description of what this future blog post might cover...</p>
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white">
+      <Navbar /> {/* Add Navbar */}
+      <div className="container mx-auto px-4 py-24"> {/* Adjusted padding for fixed navbar */}
+        <h1 className="text-5xl font-extrabold mb-12 text-center text-gray-900 dark:text-white">Blog</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"> {/* Increased gap */}
+          {blogPosts.map((post) => (
+            <Link key={post.slug} href={`/blog/${post.slug}`} passHref>
+              <div className="block bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden cursor-pointer border border-gray-200 dark:border-gray-700"> {/* Refined card styling */}
+                {/* Optional: Add an image here if posts have covers */}
+                <div className="p-7"> {/* Increased padding */}
+                  <h2 className="text-2xl font-bold mb-3 text-gray-900 dark:text-white leading-tight">{post.title}</h2> {/* Adjusted title styling */}
+                  <p className="text-gray-700 dark:text-gray-300 text-base">{post.description}</p> {/* Adjusted description styling */}
+                  {/* Optional: Add date/author here */}
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
-       <div className="bg-light-navy p-6 rounded-lg shadow-lg w-full max-w-lg">
-        <h2 className="text-2xl font-semibold text-neon-green mb-2">Another Future Topic</h2>
-        <p className="text-light-slate">Exploring another interesting concept here...</p>
-      </div>
-      <Link href="/" className="mt-10 inline-block bg-neon-green text-navy font-medium py-2 px-6 rounded-lg hover:bg-opacity-90 transition-colors duration-300">
-          Return Home
-      </Link>
-       <footer className="absolute bottom-8 text-center text-sm text-dark-slate font-mono">
-           <p>© {new Date().getFullYear()} Mahmoud Abdrabbou</p>
-       </footer>
     </div>
   );
 };
 
-export default BlogPage;
+export default BlogIndexPage;
