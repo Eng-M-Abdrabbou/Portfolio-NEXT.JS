@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter, Fira_Code } from "next/font/google";
 import "./globals.css";
 import ThemeToggle from './components/ThemeToggle';
+import ParticleBackground from './components/ParticleBackground';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,9 +29,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${firaCode.variable}`} suppressHydrationWarning>
-      <body>
-        <ThemeToggle />
-        {children}
+      <body className="relative">
+        <ParticleBackground />
+        <div className="relative z-10">
+          <ThemeToggle />
+          {children}
+        </div>
       </body>
     </html>
   );
