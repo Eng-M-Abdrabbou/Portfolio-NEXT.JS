@@ -16,7 +16,7 @@ const config: Config = {
         slate: '#8892b0', // Normal text
         'light-slate': '#a8b2d1', // Lighter text
         'lightest-slate': '#ccd6f6', // Headings/Titles
-        'neon-green': '#64ffda', // Accent color
+        'neon-green': 'var(--accent-color)', // Accent color using CSS variable
         'dark-slate': '#495670',
       },
       fontFamily: {

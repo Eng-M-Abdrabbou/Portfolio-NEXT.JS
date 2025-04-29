@@ -6,6 +6,7 @@
 @layer base {
   html {
     @apply scroll-smooth;
+    overflow-x: hidden;
   }
 
   /* Dark Theme Variables (Default) */
@@ -60,8 +61,12 @@
   ::-webkit-scrollbar-thumb:hover {
     background-color: var(--accent-color);
   }
+  ::-webkit-scrollbar-x {
+    display: none !important;
+  }
 }
 
+/* Refactored Tooltip styles using variables */
 .tooltip {
   visibility: hidden;
   width: 180px;
@@ -78,7 +83,7 @@
   margin-bottom: -50px;
   opacity: 0;
   transition: opacity 0.3s;
-  border: 1px solid var(--border-color); /* Use border color variable */
+  border: 1px solid var(--border-color);
 }
 
 .tooltip::after {
@@ -89,7 +94,7 @@
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: var(--card-background) transparent transparent transparent;
+  border-color: var(--accent-color) transparent transparent transparent;
 }
 
 .tooltip-trigger:hover .tooltip {
@@ -98,7 +103,7 @@
 }
 .tooltip-container {
   position: relative;
-  display: inline-block; /* Or any other appropriate display value */
+  display: inline-block;
 }
 
 .tooltip {
@@ -115,7 +120,7 @@
   transform: translateX(-50%);
   opacity: 0;
   transition: opacity 0.3s;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--accent-color);
 }
 
 .tooltip-container:hover .tooltip {
@@ -127,45 +132,45 @@
 @layer components {
   .section-heading {
     @apply text-2xl md:text-3xl font-semibold mb-8 flex items-center;
-    color: var(--heading-color); /* Use heading color variable */
+    color: var(--heading-color);
   }
   .section-heading::after {
     content: '';
     @apply block h-[1px] w-full md:w-64 ml-4;
-    background-color: var(--border-color); /* Use border color variable */
+    background-color: var(--border-color);
   }
   .section-container {
     @apply min-h-screen flex flex-col justify-center max-w-4xl mx-auto px-6 py-24 md:py-32;
   }
   .neon-text {
-    color: var(--accent-color); /* Use accent color variable */
+    color: var(--accent-color);
   }
   .link-styling {
     @apply inline-block relative transition-colors duration-300 focus:outline-none;
-    color: var(--heading-color); /* Use heading color variable */
+    color: var(--heading-color);
   }
   .link-styling:hover, .link-styling:focus {
-    color: var(--accent-color); /* Use accent color variable */
+    color: var(--accent-color);
   }
   .link-styling::after {
     content: '';
     @apply absolute bottom-0 left-0 w-0 h-[1px] transition-all duration-300 ease-out;
-    background-color: var(--accent-color); /* Use accent color variable */
+    background-color: var(--accent-color);
   }
   .link-styling:hover::after, .link-styling:focus::after {
     @apply w-full;
   }
   .tag {
     @apply inline-block text-xs font-mono px-3 py-1 rounded-full mr-2 mb-2;
-    background-color: var(--border-color); /* Use border color variable */
-    color: var(--accent-color); /* Use accent color variable */
+    background-color: var(--border-color);
+    color: var(--accent-color);
   }
   .icon-link {
     @apply transition-colors duration-300 text-2xl;
-    color: var(--text-color); /* Use text color variable */
+    color: var(--text-color);
   }
   .icon-link:hover {
-    color: var(--accent-color); /* Use accent color variable */
+    color: var(--accent-color);
   }
   .hero-section:hover h1 {
     transform: translateY(-5px);
@@ -177,42 +182,42 @@
   }
   .skill-card {
     @apply backdrop-blur-sm rounded-lg p-3 transition-all duration-300;
-    background-color: var(--card-background); /* Use card background variable */
-    border: 1px solid var(--border-color); /* Use border color variable */
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
   }
   .skill-card:hover {
-    border-color: var(--accent-color); /* Use accent color variable */
-    background-color: var(--border-color); /* Use border color variable */
+    border-color: var(--accent-color);
+    background-color: var(--border-color);
   }
   .skill-card-title {
     @apply text-sm mb-1;
-    color: var(--text-color); /* Use text color variable */
+    color: var(--text-color);
   }
   .skill-card-icon {
-    color: var(--accent-color); /* Use accent color variable */
+    color: var(--accent-color);
   }
   .skill-category {
     @apply mb-8;
   }
   .skill-category-title {
     @apply text-xl font-semibold mb-4;
-    color: var(--heading-color); /* Use heading color variable */
+    color: var(--heading-color);
   }
   .skill-category-content {
     @apply grid grid-cols-2 sm:grid-cols-3 gap-3;
   }
   .achievement-card {
     @apply backdrop-blur-sm rounded-lg p-4;
-    background-color: var(--card-background); /* Use card background variable */
-    border: 1px solid var(--border-color); /* Use border color variable */
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
   }
   .achievement-card-title {
     @apply text-xl font-semibold mb-4;
-    color: var(--heading-color); /* Use heading color variable */
+    color: var(--heading-color);
   }
   .achievement-list {
     @apply list-disc list-outside space-y-1 pl-5 text-sm;
-    color: var(--text-color); /* Use text color variable */
+    color: var(--text-color);
   }
 }
 @keyframes subtle-move {
