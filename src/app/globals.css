@@ -7,46 +7,66 @@
   html {
     @apply scroll-smooth;
   }
-  body {
-    @apply bg-navy text-slate;
-     /* Use colors from tailwind config */
-  }
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold text-lightest-slate;
-  }
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-  ::-webkit-scrollbar-track {
-    background: #0a192f; /* navy */
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: #495670; /* dark-slate */
-    border-radius: 10px;
-    border: 2px solid #0a192f; /* navy */
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: #8892b0; /* slate */
-  }
-  ::-webkit-scrollbar {
-    height: 0px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: #64ffda; /* neon-green */
-    border-radius: 10px;
-    border: 2px solid #0a192f; /* navy */
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: #64ffda; /* neon-green */
+
+  /* Dark Theme Variables (Default) */
+  :root {
+    --background-color: #0a192f; /* navy */
+    --text-color: #8892b0; /* slate */
+    --heading-color: #ccd6f6; /* lightest-slate */
+    --accent-color: #64ffda; /* neon-green */
+    --card-background: #112240; /* light-navy */
+    --border-color: #233554; /* lightest-navy */
+    --scrollbar-thumb: #495670; /* dark-slate */
+    --scrollbar-track: #0a192f; /* navy */
   }
 
+  /* Light Theme Variables */
+  html[data-theme='light'] {
+    --background-color: #f0f2f5; /* Light grey background */
+    --text-color: #333; /* Dark text */
+    --heading-color: #1a1a1a; /* Even darker headings */
+    --accent-color: #007bff; /* Blue accent */
+    --card-background: #ffffff; /* White cards */
+    --border-color: #ddd; /* Light grey border */
+    --scrollbar-thumb: #888; /* Grey scrollbar thumb */
+    --scrollbar-track: #f1f1f1; /* Light grey scrollbar track */
+  }
+
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px; /* Added height for horizontal scrollbar */
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+    border-radius: 10px;
+    border: 2px solid var(--scrollbar-track);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--accent-color);
+  }
 }
 
 .tooltip {
   visibility: hidden;
   width: 180px;
-  background-color: #0a192f;
-  color: #fff;
+  background-color: var(--card-background);
+  color: var(--text-color);
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
@@ -58,6 +78,7 @@
   margin-bottom: -50px;
   opacity: 0;
   transition: opacity 0.3s;
+  border: 1px solid var(--border-color); /* Use border color variable */
 }
 
 .tooltip::after {
@@ -68,7 +89,7 @@
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: #0a192f transparent transparent transparent;
+  border-color: var(--card-background) transparent transparent transparent;
 }
 
 .tooltip-trigger:hover .tooltip {
@@ -82,8 +103,8 @@
 
 .tooltip {
   visibility: hidden;
-  background-color: #0a192f;
-  color: lightest-slate;
+  background-color: var(--card-background);
+  color: var(--text-color);
   text-align: center;
   border-radius: 6px;
   padding: 5px;
@@ -94,7 +115,7 @@
   transform: translateX(-50%);
   opacity: 0;
   transition: opacity 0.3s;
-  border: 1px solid #64ffda;
+  border: 1px solid var(--border-color);
 }
 
 .tooltip-container:hover .tooltip {
@@ -105,33 +126,46 @@
 
 @layer components {
   .section-heading {
-    @apply text-2xl md:text-3xl font-semibold text-lightest-slate mb-8 flex items-center;
+    @apply text-2xl md:text-3xl font-semibold mb-8 flex items-center;
+    color: var(--heading-color); /* Use heading color variable */
   }
   .section-heading::after {
     content: '';
-    @apply block h-[1px] w-full md:w-64 ml-4 bg-lightest-navy;
+    @apply block h-[1px] w-full md:w-64 ml-4;
+    background-color: var(--border-color); /* Use border color variable */
   }
   .section-container {
     @apply min-h-screen flex flex-col justify-center max-w-4xl mx-auto px-6 py-24 md:py-32;
   }
   .neon-text {
-    @apply text-neon-green;
+    color: var(--accent-color); /* Use accent color variable */
   }
   .link-styling {
-    @apply inline-block relative text-lightest-slate transition-colors duration-300 hover:text-neon-green focus:text-neon-green focus:outline-none;
+    @apply inline-block relative transition-colors duration-300 focus:outline-none;
+    color: var(--heading-color); /* Use heading color variable */
+  }
+  .link-styling:hover, .link-styling:focus {
+    color: var(--accent-color); /* Use accent color variable */
   }
   .link-styling::after {
     content: '';
-    @apply absolute bottom-0 left-0 w-0 h-[1px] bg-neon-green transition-all duration-300 ease-out;
+    @apply absolute bottom-0 left-0 w-0 h-[1px] transition-all duration-300 ease-out;
+    background-color: var(--accent-color); /* Use accent color variable */
   }
   .link-styling:hover::after, .link-styling:focus::after {
     @apply w-full;
   }
   .tag {
-    @apply inline-block bg-lightest-navy/10 text-neon-green text-xs font-mono px-3 py-1 rounded-full mr-2 mb-2;
+    @apply inline-block text-xs font-mono px-3 py-1 rounded-full mr-2 mb-2;
+    background-color: var(--border-color); /* Use border color variable */
+    color: var(--accent-color); /* Use accent color variable */
   }
   .icon-link {
-    @apply text-light-slate hover:text-neon-green transition-colors duration-300 text-2xl;
+    @apply transition-colors duration-300 text-2xl;
+    color: var(--text-color); /* Use text color variable */
+  }
+  .icon-link:hover {
+    color: var(--accent-color); /* Use accent color variable */
   }
   .hero-section:hover h1 {
     transform: translateY(-5px);
@@ -142,31 +176,43 @@
     transition: transform 0.3s ease-in-out;
   }
   .skill-card {
-    @apply bg-lightest-navy/10 backdrop-blur-sm rounded-lg p-3 border border-lightest-navy/30 hover:border-neon-green hover:bg-lightest-navy/20 transition-all duration-300;
+    @apply backdrop-blur-sm rounded-lg p-3 transition-all duration-300;
+    background-color: var(--card-background); /* Use card background variable */
+    border: 1px solid var(--border-color); /* Use border color variable */
+  }
+  .skill-card:hover {
+    border-color: var(--accent-color); /* Use accent color variable */
+    background-color: var(--border-color); /* Use border color variable */
   }
   .skill-card-title {
-    @apply text-sm text-light-slate mb-1;
+    @apply text-sm mb-1;
+    color: var(--text-color); /* Use text color variable */
   }
   .skill-card-icon {
-    @apply text-neon-green;
+    color: var(--accent-color); /* Use accent color variable */
   }
   .skill-category {
     @apply mb-8;
   }
   .skill-category-title {
-    @apply text-xl font-semibold text-lightest-slate mb-4;
+    @apply text-xl font-semibold mb-4;
+    color: var(--heading-color); /* Use heading color variable */
   }
   .skill-category-content {
     @apply grid grid-cols-2 sm:grid-cols-3 gap-3;
   }
   .achievement-card {
-    @apply bg-lightest-navy/10 backdrop-blur-sm rounded-lg p-4 border border-lightest-navy/30;
+    @apply backdrop-blur-sm rounded-lg p-4;
+    background-color: var(--card-background); /* Use card background variable */
+    border: 1px solid var(--border-color); /* Use border color variable */
   }
   .achievement-card-title {
-    @apply text-xl font-semibold text-lightest-slate mb-4;
+    @apply text-xl font-semibold mb-4;
+    color: var(--heading-color); /* Use heading color variable */
   }
   .achievement-list {
-    @apply list-disc list-outside space-y-1 pl-5 text-sm text-light-slate;
+    @apply list-disc list-outside space-y-1 pl-5 text-sm;
+    color: var(--text-color); /* Use text color variable */
   }
 }
 @keyframes subtle-move {

@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import { Inter, Fira_Code } from "next/font/google";
 import "./globals.css";
+import ThemeToggle from './components/ThemeToggle';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,8 +27,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${firaCode.variable}`}>
-      <body className="bg-navy text-slate font-sans antialiased">
+    <html lang="en" className={`${inter.variable} ${firaCode.variable}`} suppressHydrationWarning>
+      <body>
+        <ThemeToggle />
         {children}
       </body>
     </html>
