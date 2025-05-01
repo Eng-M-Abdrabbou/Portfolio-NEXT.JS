@@ -5,6 +5,7 @@ import GradientSpots from '../../components/GradientSpots';
 import { FaGithub, FaLinkedin, FaFileAlt } from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
 import { motion } from 'framer-motion';
+import Spline from '@splinetool/react-spline';
 
 const Hero = () => {
   const originalImageSrc = "/img/hero.jpg";
@@ -35,7 +36,7 @@ const Hero = () => {
   };
 
   return (
-    <div id="home" className="mt-auto hero-section min-h-screen flex flex-col justify-center items-start max-w-5xl mx-auto px-6 pt-16 pb-16 md:pt-16 relative">
+    <div id="home" className="mt-auto hero-section min-h-screen flex flex-col justify-center items-start max-w-5xl mx-auto px-6 pt-16 pb-16 md:pt-16 relative pointer-events-none">
       <GradientSpots />
       <div className="flex items-center mt-9">
         <div className="relative tooltip-container image-container"> {/* Added image-container class */}
@@ -47,7 +48,7 @@ const Hero = () => {
           <img
             src={currentImageSrc}
             alt="Mahmoud Abdrabbou"
-            className="rounded-full w-44 h-44 mr-4 object-cover tooltip-trigger"
+            className="rounded-full w-44 h-44 mr-4 object-cover tooltip-trigger pointer-events-auto"
             onMouseOver={handleMouseOver}
             onMouseLeave={handleMouseLeave}
           />
@@ -85,6 +86,13 @@ const Hero = () => {
           </motion.h1>
         </div>
       </div>
+      {/* Spline Component */}
+      <div className="absolute inset-0 w-screen h-screen z-[-10] pointer-events-auto animate-subtle-move-5"> {/* Container for Spline */}
+        <Spline
+          scene="https://prod.spline.design/aIaENoWFGNRJUmTH/scene.splinecode"
+          className="w-full h-full"
+        />
+      </div>
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -106,7 +114,7 @@ const Hero = () => {
         initial={{ opacity: 1, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.5 }}
-        className="flex space-x-6 mt-4"
+        className="flex space-x-6 mt-4 pointer-events-auto"
       >
         <a
           href="https://github.com/Eng-M-Abdrabbou" 
@@ -147,7 +155,7 @@ const Hero = () => {
         </a>
         {/* --- End Added Resume Link --- */}
       </motion.div>
-      <div className="flex flex-row items-center mt-8 space-x-4">
+      <div className="flex flex-row items-center mt-8 space-x-4 pointer-events-auto">
         <div className="bg-navy/80 rounded-md p-4 w-1/3 backdrop-blur-lgm border border-lightest-navy/30 hover:border-neon-green">
           <p className="text-neon-green text-center">
             "The only true wisdom is in knowing you know nothing." 

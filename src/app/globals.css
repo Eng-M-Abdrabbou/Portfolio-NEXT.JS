@@ -242,6 +242,10 @@
 .animate-subtle-move-4 {
   animation: subtle-move 22s ease-in-out infinite reverse;
 }
+
+.animate-subtle-move-5 {
+  animation: subtle-move 12s ease-in-out infinite;
+}
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
   50% { transform: translateX(5px); }
