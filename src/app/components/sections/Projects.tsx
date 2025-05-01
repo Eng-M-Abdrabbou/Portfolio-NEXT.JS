@@ -19,6 +19,7 @@ import { FaJava } from "react-icons/fa";
 import { BiBrain } from "react-icons/bi";
 import { LiaCss3Alt, LiaJsSquare, LiaReact } from "react-icons/lia";
 import { IoIosLeaf } from "react-icons/io";
+import { ShineBorder } from "@/components/magicui/shine-border";
 
 // Define Project type with updated structure
 interface Project {
@@ -148,19 +149,22 @@ const Projects = () => {
 
         {/* Left Column: Project Cards (Scrollable) */}
         <div className="md:col-span-1 overflow-y-auto pr-14 scrollbar-thin scrollbar-thumb-slate scrollbar-track-light-navy border border-slate/50 rounded-xl">
-          <h2 className="text-2xl font-bold mb-4 text-center">Select a Project:</h2>
+          <h2 className="text-2xl font-bold mb-4 ml-10 text-center">Select a Project:</h2>
           {projectsData.map((project, index) => (
             <div // Added wrapper div for clickability
               key={index} // Moved key to the wrapper div
               onClick={() => setSelectedProject(project)} // Moved onClick here
               className="cursor-pointer -mb-2 ml-6" // Moved cursor-pointer here, added negative margin for tighter spacing
             >
+
               <CardContainer // Original CardContainer
                 className="inter-var w-full -mb-16 -mt-16 -mr-8" // Keep original CardContainer class
+                
               >
                 <CardBody // Original CardBody
                   className={`relative group/card border-slate/50 w-full h-auto rounded-xl p-4 border transition-all duration-300 ${selectedProject?.title === project.title ? 'border-neon-green shadow-neon-glow' : 'hover:border-neon-green/50 hover:shadow-md'}`} // Removed cursor-pointer
                 >
+                                <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
                   <CardItem
                     translateZ="50"
                     className="text-lg font-bold text-lightest-slate group-hover:text-neon-green transition-colors"
@@ -193,7 +197,7 @@ const Projects = () => {
         </div>
 
         {/* Right Column: Project Details (Scrollable) */}
-        <div className="md:col-span-2 overflow-y-auto pl-2 scrollbar-thin scrollbar-thumb-slate scrollbar-track-light-navy backdrop-blur-sm p-6 rounded-lg shadow-lg border border-slate/50">
+        <div className="md:col-span-2 overflow-y-auto pl-2 scrollbar-thin scrollbar-thumb-slate scrollbar-track-light-navy backdrop-blur-sm p-6 rounded-xl shadow-lg border border-slate/50">
           {selectedProject ? (
             <div className="animate-fade-in pr-12 pl-12"> {/* Simple fade-in animation */}
               {/* Centered Title */}

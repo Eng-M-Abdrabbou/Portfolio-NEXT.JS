@@ -71,7 +71,7 @@ const SkillCategory = ({ title, skills, icon }: { title: string; skills: string[
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.5 }}
-      className="mb-6 ml-auto mr-auto bg-lightest-navy/10 backdrop-blur-sm w-11/12 rounded-lg p-4 border border-lightest-navy/30 hover:border-neon-green hover:bg-lightest-navy/20 transition-all duration-300"
+      className="mb-6 ml-auto mr-auto bg-lightest-navy/10 backdrop-blur-sm w-11/12 rounded-xl p-4 border border-lightest-navy/30 hover:border-neon-green hover:bg-lightest-navy/20 transition-all duration-300"
     >
       <div className="flex items-center mb-4 gap-2">
         <div className="mr-3 text-neon-green">
@@ -85,7 +85,7 @@ const SkillCategory = ({ title, skills, icon }: { title: string; skills: string[
           return (
             <div
               key={index}
-              className="flex items-center bg-lightest-navy/20 backdrop-blur-sm rounded-lg p-2 border border-lightest-navy/30 hover:border-neon-green hover:bg-lightest-navy/30 transition-all duration-300"
+              className="flex items-center bg-lightest-navy/20 backdrop-blur-sm rounded-xl p-2 border border-lightest-navy/30 hover:border-neon-green hover:bg-lightest-navy/30 transition-all duration-300"
             >
               {iconSrc && ( // Conditionally render the image only if iconSrc exists
                 <img

@@ -87,7 +87,7 @@ const Hero = () => {
         </div>
       </div>
       {/* Spline Component */}
-      <div className="absolute inset-0 w-screen h-screen z-[-10] pointer-events-auto animate-subtle-move-5"> {/* Container for Spline */}
+      <div className="absolute inset-0 w-screen h-screen z-[-10] pointer-events-auto animate-subtle-move-5 ml-400-"> {/* Container for Spline */}
         <Spline
           scene="https://prod.spline.design/aIaENoWFGNRJUmTH/scene.splinecode"
           className="w-full h-full"
@@ -108,7 +108,8 @@ const Hero = () => {
         transition={{ duration: 0.5, delay: 0.4 }}
         className="text-base md:text-lg max-w-5xl text-light-slate mb-8"
       >
-       I'm a Full Stack Developer skilled in Java, Python, React, and Node.js. I build reliable systems, streamline integrations, and improve performance.
+       I'm a Full Stack Developer skilled in Java, Python, React, and Node.js. <br />
+       I build reliable systems, streamline integrations, and improve performance.
       </motion.p>
       <motion.div
         initial={{ opacity: 1, y: 20 }}
@@ -156,19 +157,19 @@ const Hero = () => {
         {/* --- End Added Resume Link --- */}
       </motion.div>
       <div className="flex flex-row items-center mt-8 space-x-4 pointer-events-auto">
-        <div className="bg-navy/80 rounded-md p-4 w-1/3 backdrop-blur-lgm border border-lightest-navy/30 hover:border-neon-green">
+        <div className="bg-navy/80 rounded-md p-4 w-1/3 backdrop-blur-lgm border border-lightest-navy/30 hover:border-neon-green rounded-xl">
           <p className="text-neon-green text-center">
             "The only true wisdom is in knowing you know nothing." 
             <span className="text-light-slate"> ~ Socrates</span>
           </p>
         </div>
-        <div className="bg-navy/80 rounded-md p-4 w-1/3 backdrop-blur-lgm border border-lightest-navy/30 hover:border-neon-green">
+        <div className="bg-navy/80 rounded-md p-4 w-1/3 backdrop-blur-lgm border border-lightest-navy/30 hover:border-neon-green rounded-xl">
           <p className="text-neon-green text-center">
             "How you interpret the world shapes its reality." 
             <span className="text-light-slate"> ~ Mahmoud Abdrabbou</span>
           </p>
         </div>
-        <div className="bg-navy/80 rounded-md p-4 w-1/3 backdrop-blur-lgm border border-lightest-navy/30 hover:border-neon-green">
+        <div className="bg-navy/80 rounded-md p-4 w-1/3 backdrop-blur-lgm border border-lightest-navy/30 hover:border-neon-green rounded-xl">
           <p className="text-neon-green text-center">
             "He who has a why to live can bear almost any how." 
             <span className="text-light-slate"> ~ Friedrich Nietzsche</span>
