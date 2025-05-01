@@ -51,7 +51,7 @@ const Hero = () => {
             onMouseOver={handleMouseOver}
             onMouseLeave={handleMouseLeave}
           />
-          <div className="tooltip">The handsome guy is called Rico 😺 street name: El-Gatito</div>
+          <div className="tooltip">This is Rico 😺 aka El-Gatito</div>
         </div>
         <div>
           <motion.p
