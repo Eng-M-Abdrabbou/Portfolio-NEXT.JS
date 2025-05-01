@@ -38,7 +38,7 @@ const Hero = () => {
   return (
     <div id="home" className="mt-auto hero-section min-h-screen flex flex-col justify-center items-start max-w-5xl mx-auto px-6 pt-16 pb-16 md:pt-16 relative pointer-events-none">
       <GradientSpots />
-      <div className="flex items-center mt-9">
+      <div className="flex items-center mt-10">
         <div className="relative tooltip-container image-container"> {/* Added image-container class */}
           {/* Circular timeline SVG */}
           <svg className="circular-timeline" viewBox="0 0 100 100">
@@ -80,16 +80,16 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-lightest-slate mb-3"
+            className="text-4xl mb-7 sm:text-5xl md:text-6xl lg:text-7xl font-bold text-lightest-slate"
           >
             Mahmoud Abdrabbou.
           </motion.h1>
         </div>
       </div>
       {/* Spline Component */}
-      <div className="absolute inset-0 w-screen h-screen z-[-10] pointer-events-auto animate-subtle-move-5 ml-400-"> {/* Container for Spline */}
+      <div className="absolute inset-0 w-screen h-screen z-[-10] pointer-events-auto animate-subtle-move-5 ml-600- mt-16 "> {/* Container for Spline */}
         <Spline
-          scene="https://prod.spline.design/aIaENoWFGNRJUmTH/scene.splinecode"
+            scene="https://prod.spline.design/lkGNG3gU2mkL3QWP/scene.splinecode"
           className="w-full h-full"
         />
       </div>

@@ -4,6 +4,7 @@ import { Inter, Fira_Code } from "next/font/google";
 import "./globals.css";
 import ThemeToggle from './components/ThemeToggle';
 import ParticleBackground from './components/ParticleBackground';
+import Footer from './components/Footer';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -34,6 +35,12 @@ export default function RootLayout({
         <div className="relative z-10">
           <ThemeToggle />
           {children}
+<div className="w-[85%] mx-auto">
+<Footer />
+
+</div>
+        
+
         </div>
       </body>
     </html>
