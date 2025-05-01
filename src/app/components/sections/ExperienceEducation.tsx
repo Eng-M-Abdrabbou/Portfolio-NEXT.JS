@@ -54,11 +54,11 @@ const ExperienceEducation = () => {
               <div className="absolute -left-9 mt-1 w-14 h-14 rounded-full bg-light-navy border-2 border-navy flex items-center justify-center">
                 {/* Placeholder for IEEE icon */}
                 {/* <span className="text-lightest-slate text-xs">IEEE</span> */}
-                <img src="/img/ieee.jpg" alt="IEEE Logo" className="w-full h-full rounded-full object-cover" />
+                <img src="/img/ieee.jpg" alt="IEEE Logo" className="w-full h-full rounded-full object-cover z-10" />
                 {/* You can replace the span with an img tag for the logo */}
                 {/* <img src="/path/to/ieee-logo.png" alt="IEEE Logo" className="w-full h-full rounded-full object-cover" /> */}
               </div>
-              <div className="p-6 bg-light-navy rounded-lg shadow-md border border-light-navy"> {/* Added border */}
+              <div className="p-6 bg-transparent backdrop-blur-sm border border-lightest-slate rounded-lg shadow-md transition-all duration-300 hover:border-neon-green hover:bg-lightest-slate/5"> {/* Transparent background, border, hover effects */}
                 <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
                   <h4 className="text-lg font-medium text-lightest-slate">Software Engineer | Full Stack & AI/ML</h4>
                   <p className="text-sm text-light-slate font-mono">February 2025 – Present</p>
@@ -78,16 +78,16 @@ const ExperienceEducation = () => {
               <div className="absolute -left-9 mt-1 w-14 h-14 rounded-full bg-light-navy border-2 border-navy flex items-center justify-center">
                 {/* Placeholder for Federal Transformers Company LLC icon */}
                 {/* <span className="text-lightest-slate text-xs text-center">FTC</span> */}
-                <img src="/img/ftc.jpg" alt="Federal Transformers Company LLC Logo" className="w-full h-full rounded-full object-cover" />
+                <img src="/img/ftc.jpg" alt="Federal Transformers Company LLC Logo" className="w-full h-full rounded-full object-cover z-10" />
                 {/* You can replace the span with an img tag for the logo */}
                 {/* <img src="/path/to/ftc-logo.png" alt="Federal Transformers Company LLC Logo" className="w-full h-full rounded-full object-cover" /> */}
               </div>
-              <div className="p-6 bg-light-navy rounded-lg shadow-md border border-light-navy"> {/* Added border */}
+              <div className="p-6 bg-transparent backdrop-blur-sm border border-lightest-slate rounded-lg shadow-md transition-all duration-300 hover:border-neon-green hover:bg-lightest-slate/5"> {/* Transparent background, border, hover effects */}
                 <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
                   <h4 className="text-lg font-medium text-lightest-slate">Software Engineer in the Software Development Team</h4>
                   <p className="text-sm text-light-slate font-mono">September 2024 – March 2025</p>
                 </div>
-                <p className="text-md text-neon-green mb-3">Federal Transformers Company LLC | UAE – Abu Dhabi</p>
+                <p className="text-md text-neon-green mb-3 ">Federal Transformers Company LLC | UAE – Abu Dhabi</p>
                 <ul className="list-disc list-outside space-y-2 pl-5 text-base text-light-slate">
                   <li>Spearheaded BASYS development, cutting attendance tracking time from 2 days to under 25 seconds.</li>
                   <li>Engineered customizable reporting features for rapid, actionable insights.</li>
@@ -115,11 +115,11 @@ const ExperienceEducation = () => {
                <div className="absolute -left-9 mt-1 w-14 h-14 rounded-full bg-light-navy border-2 border-navy flex items-center justify-center">
                  {/* Placeholder for Al Ain University icon */}
                  {/* <span className="text-lightest-slate text-xs text-center">AAU</span> */}
-                 <img src="/img/aau.jpg" alt="Al Ain University Logo" className="w-full h-full rounded-full object-cover" />
+                 <img src="/img/aau.jpg" alt="Al Ain University Logo" className="w-full h-full rounded-full object-cover z-10" />
                  {/* You can replace the span with an img tag for the logo */}
                  {/* <img src="/path/to/aau-logo.png" alt="Al Ain University Logo" className="w-full h-full rounded-full object-cover" /> */}
                </div>
-               <div className="p-6 bg-light-navy rounded-lg shadow-md border border-light-navy"> {/* Added border */}
+               <div className="p-6 bg-transparent border border-lightest-slate rounded-lg shadow-md transition-all duration-300 hover:border-neon-green hover:bg-lightest-slate/5"> {/* Transparent background, border, hover effects */}
                 <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
                   <h4 className="text-lg font-medium text-lightest-slate">Bachelor of Science in Software Engineering (Honors) - ABET Accredited</h4>
                   <p className="text-sm text-light-slate font-mono">Graduated on 2025/Feb</p>

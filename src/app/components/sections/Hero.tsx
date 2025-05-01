@@ -92,7 +92,7 @@ const Hero = () => {
         className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate mb-6"
       >
         <span className="neon-text">Software Engineer</span>
-        <div className="text-sm text-light-slate">Based in UAE (🇦🇪)</div>
+        <div className="text-sm text-light-slate">📍 Based in UAE (🇦🇪)</div>
       </motion.h2>
       <motion.p
         initial={{ opacity: 0, y: 20 }}
@@ -109,7 +109,7 @@ const Hero = () => {
         className="flex space-x-6 mt-4"
       >
         <a
-          href="https://github.com/YOUR_GITHUB_USERNAME" // Replace with your GitHub URL
+          href="https://github.com/Eng-M-Abdrabbou" 
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
@@ -118,7 +118,7 @@ const Hero = () => {
           <FaGithub />
         </a>
         <a
-          href="https://linkedin.com/in/YOUR_LINKEDIN_PROFILE" // Replace with your LinkedIn URL
+          href="https://www.linkedin.com/in/mahmoud-abdrabbou-18b170350/" 
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
@@ -127,7 +127,7 @@ const Hero = () => {
           <FaLinkedin />
         </a>
         <a
-          href="https://leetcode.com/YOUR_LEETCODE_USERNAME" // Replace with your LeetCode URL
+          href="https://leetcode.com/u/MANSAMUSAA/" 
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LeetCode"
@@ -137,8 +137,6 @@ const Hero = () => {
         </a>
         {/* --- Added Resume Link --- */}
         <a
-          // IMPORTANT: Replace this href with the path to your resume in the /public folder
-          // OR your Google Docs shareable link
           href="/Mahmoud_Abdrabbou_Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"

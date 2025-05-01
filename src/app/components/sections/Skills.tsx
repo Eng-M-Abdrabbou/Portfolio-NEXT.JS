@@ -1,26 +1,27 @@
 // src/app/components/sections/Skills.tsx
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, Globe, Layers, Database, Wrench, Cloud, PenTool, Award, Brain } from 'lucide-react'; // Added Cloud, Brain
+import { Code, Globe, Layers, Database, Wrench, Cloud, PenTool, Award, Brain, Laptop } from 'lucide-react'; // Added Cloud, Brain
 
 const skillsData = {
+  AreaOfExpertise: ["Java", "Spring boot","Python", "Flask", "JavaScript","Typescript","React.js", "Node.js", "Express.js", "Dart","Flutter","PostgreSQL"],
   programming: ["Java", "Python", "JavaScript", "Dart", "PHP", "SQL", "Matlab"],
-  web: ["HTML", "CSS", "JavaScript", "Typescript", "BootStrap", "REST API’s"], // Updated Bootstrap capitalization and API text
-  frameworks: ["React.js", "Node.js", "Express.js", "Spring boot", "Flask", "Flutter", "Pytorch", "Torchvision", "Scikit learn"], // Added Flutter, Pytorch, Torchvision, Scikit learn
+  web: ["HTML", "CSS", "JavaScript", "Typescript", "BootStrap", "REST API’s"], 
+  frameworks: ["React.js", "Node.js", "Express.js", "Spring boot", "Flask", "Flutter", "Pytorch", "Torchvision", "Scikit learn"],
   databases: ["MySQL", "PostgreSQL", "MongoDB"],
-  tools: ["Git", "GitHub", "Postman", "Docker"], // Updated tools list
-  cloud: ["AWS", "Kubernetes"], // Added cloud category
-  ui_ux: ["Figma", "Bootsrap Studio", "Spline"], // Updated Bootstrap capitalization
-  misc: ["Google(operators, queries)", "Prompt Engineering", "Data modelling", "Developer tools", "Agile Development and Scrum"], // Updated misc list
-  // Removed 'soft' and 'ai_ml' as per new structure
-  activities: [ // Kept activities separate
-    "Winner: UAE National Scientific Excellence Competition",
-    "IEEE Member & Competition Participant",
-    "5th Place: University Chess Tournament",
-    "Volunteer: 23rd IEEE ACIT Conference",
-    "Finalist: Expo Innovation Programme",
-    "Finalist: Sundouq al Watan Youth Startup",
-    "Winner: University Programming Competitions",
+  tools: ["Git", "GitHub", "Postman", "Docker"],  
+  cloud: ["AWS", "Kubernetes"], 
+  ui_ux: ["Figma", "Bootsrap Studio", "Spline"], 
+  misc: ["Google(operators, queries)", "Prompt Engineering", "Data modelling", "Developer tools", "Agile Development and Scrum"], 
+ 
+  activities: [ 
+    "🏆 Winner: UAE National Scientific Excellence Competition",
+    "🎖️ IEEE Member & Competition Participant",
+    "🧑‍💻 Volunteer: 23rd IEEE ACIT Conference",
+    "🥈 Finalist: Expo Innovation Programme",
+    "🥈 Finalist: Sundouq al Watan Youth Startup",
+    "🥉 3rd Place: University Chess Tournament",
+    "🎖️ Winner: Annual AAU Programming Competitions",
   ],
 };
 
@@ -72,13 +73,13 @@ const SkillCategory = ({ title, skills, icon }: { title: string; skills: string[
       transition={{ duration: 0.5 }}
       className="mb-6 ml-auto mr-auto bg-lightest-navy/10 backdrop-blur-sm w-11/12 rounded-lg p-4 border border-lightest-navy/30 hover:border-neon-green hover:bg-lightest-navy/20 transition-all duration-300"
     >
-      <div className="flex items-center mb-4">
+      <div className="flex items-center mb-4 gap-2">
         <div className="mr-3 text-neon-green">
           {icon}
         </div>
         <h3 className="text-xl font-semibold text-lightest-slate">{title}</h3>
       </div>
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-wrap gap-2 justify-center">
         {skills.map((skill, index) => {
           const iconSrc = skillIcons[skill];
           return (
@@ -109,88 +110,89 @@ const Skills = () => {
       <h2 className="bg-clip-text bg-gradient-to-b from-white/80 to-white/20 bg-opacity-50 text-4xl text-center text-transparent md:text-7xl">
         Skills & Activities
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-2 gap-y-8">
+      {/* <SkillCategory
+            title="Area of Expertise" // Updated title
+            skills={skillsData.AreaOfExpertise} // Use updated programming skills
+            icon={<Laptop size={20} />}
+          /> */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-2 gap-y-4">
         {/* Column 1 */}
         <div>
           <SkillCategory
-            title="Programming" // Updated title
-            skills={skillsData.programming} // Use updated programming skills
+            title="Programming" 
+            skills={skillsData.programming} 
             icon={<Code size={20} />}
           />
-          <SkillCategory
-            title="Web Development"
-            skills={skillsData.web}
-            icon={<Globe size={20} />}
+                 <SkillCategory
+            title="Tools" 
+            skills={skillsData.tools} 
+            icon={<Wrench size={20} />}
           />
           <SkillCategory
-            title="Frameworks/Libraries" // Updated title
-            skills={skillsData.frameworks} // Use updated frameworks skills
-            icon={<Layers size={20} />}
-          />
-           <SkillCategory
             title="Databases"
             skills={skillsData.databases}
             icon={<Database size={20} />}
           />
-           <SkillCategory
-            title="UI/UX" // Updated title
-            skills={skillsData.ui_ux} // Use updated ui_ux skills
-            icon={<PenTool size={20} />}
+          <SkillCategory
+            title="Misc" 
+            skills={skillsData.misc} 
+            icon={<Brain size={20} />} 
           />
         </div>
         {/* Column 2 */}
         <div>
-           <SkillCategory
-            title="Tools" // Updated title
-            skills={skillsData.tools} // Use updated tools skills
-            icon={<Wrench size={20} />}
+        <SkillCategory
+            title="Web Development"
+            skills={skillsData.web}
+            icon={<Globe size={20} />}
           />
-          <SkillCategory
-            title="Cloud Technologies" // New category
-            skills={skillsData.cloud} // Use new cloud skills
-            icon={<Cloud size={20} />} // Use Cloud icon
-          />
-          <SkillCategory
-            title="Misc" // Updated title
-            skills={skillsData.misc} // Use updated misc skills
-            icon={<Brain size={20} />} // Using Brain icon for Misc
+            <SkillCategory
+            title="Frameworks/Libraries" 
+            skills={skillsData.frameworks} 
+            icon={<Layers size={20} />}
           />
 
-          {/* Activities Section (Kept as is) */}
-          <motion.div
+                <SkillCategory
+            title="UI/UX" 
+            skills={skillsData.ui_ux} 
+            icon={<PenTool size={20} />}
+          />
+          <SkillCategory
+            title="Cloud Technologies" 
+            skills={skillsData.cloud} 
+            icon={<Cloud size={20} />} 
+          />
+        </div>
+      </div>
+                        {/* Activities Section*/}
+                        <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5 }}
-            className="mb-8 mr-auto ml-auto w-11/12 bg-lightest-navy/10 backdrop-blur-sm rounded-lg p-4 border border-lightest-navy/30 hover:border-neon-green hover:bg-lightest-navy/20 transition-all duration-300"
+            className="justify-center mb-8 mr-auto ml-auto pr-4 pl-4 w-[96%] bg-lightest-navy/10 backdrop-blur-sm rounded-lg p-4 border border-lightest-navy/30 hover:border-neon-green hover:bg-lightest-navy/20 transition-all duration-300"
           >
-            <div className="flex items-center mb-4">
+            <div className="flex items-center mb-4 w-full justify-center">
               <div className="mr-3 text-neon-green">
                 <Award size={20} />
               </div>
               <h3 className="text-xl font-semibold text-lightest-slate border-lightest-navy/30 hover:border-neon-green hover:bg-lightest-navy/20 transition-all duration-300">Notable Activities & Achievements</h3>
             </div>
-            {/* Changed ul to div and applied flex wrap */}
-            <div className="flex flex-wrap gap-3 border-lightest-navy/30 hover:border-neon-green hover:bg-lightest-navy/20 transition-all duration-300">
+            <div className="flex flex-wrap justify-center gap-3 border-lightest-navy/30 hover:border-neon-green hover:bg-lightest-navy/20 transition-all duration-300">
               {skillsData.activities.map((activity, index) => (
-                // Changed li to div and applied skill item styling
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 10 }} // Adjusted initial animation slightly
+                  initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
-                  // Applied styles from skill items
                   className="flex items-center bg-lightest-navy/20 backdrop-blur-sm rounded-lg p-2 border border-lightest-navy/30 hover:border-neon-green hover:bg-lightest-navy/30 transition-all duration-300"
                 >
-                  {/* Removed list styling, kept text */}
                   <span className="text-sm text-light-slate">{activity}</span>
                 </motion.div>
               ))}
             </div>
           </motion.div>
-        </div>
-      </div>
     </section>
   );
 };

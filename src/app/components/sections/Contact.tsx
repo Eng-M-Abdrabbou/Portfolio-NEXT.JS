@@ -104,7 +104,7 @@ const Contact = () => {
 
        {/* Footer */}
        <footer className="mt-24 text-center text-sm text-dark-slate font-mono">
-           <p>Designed & Built by Mahmoud Abdrabbou</p>
+           <p>Designed & Built with ❤️ by Mahmoud Abdrabbou</p>
            <p>© {new Date().getFullYear()}</p>
        </footer>
     </section>

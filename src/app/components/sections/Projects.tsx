@@ -144,16 +144,16 @@ const Projects = () => {
       </h2>
       <br />
       {/* Two-column layout container with fixed height for scrolling */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-1 md:gap-2 w-full max-w-7xl flex-grow h-[100vh] mr-8 ml-8 [&::-webkit-scrollbar]:w-12"> {/* Adjust max-w and h as needed */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-1 md:gap-2 w-full max-w-7xl flex-grow h-[70vh] mr-8 ml-8 [&::-webkit-scrollbar]:w-12"> {/* Adjust max-w and h as needed */}
 
         {/* Left Column: Project Cards (Scrollable) */}
-        <div className="md:col-span-1 overflow-y-auto pr-12 scrollbar-thin scrollbar-thumb-slate scrollbar-track-light-navy">
+        <div className="md:col-span-1 overflow-y-auto pr-14 scrollbar-thin scrollbar-thumb-slate scrollbar-track-light-navy border border-slate/50 rounded-xl">
           <h2 className="text-2xl font-bold mb-4 text-center">Select a Project:</h2>
           {projectsData.map((project, index) => (
             <div // Added wrapper div for clickability
               key={index} // Moved key to the wrapper div
               onClick={() => setSelectedProject(project)} // Moved onClick here
-              className="cursor-pointer -mb-2" // Moved cursor-pointer here, added negative margin for tighter spacing
+              className="cursor-pointer -mb-2 ml-6" // Moved cursor-pointer here, added negative margin for tighter spacing
             >
               <CardContainer // Original CardContainer
                 className="inter-var w-full -mb-16 -mt-16 -mr-8" // Keep original CardContainer class
