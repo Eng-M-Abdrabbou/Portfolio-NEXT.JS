@@ -1,7 +1,7 @@
 // src/app/page.tsx
 'use client'; // Required for react-scroll and framer-motion hooks
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/sections/Hero';
 import ExperienceEducation from './components/sections/ExperienceEducation';
@@ -15,8 +15,41 @@ import AnimatedBackground from './components/AnimatedBackground';
 // If using HOC, wrap components like this:
 // const WrappedHero = MotionWrap(Hero, 'home');
 // Otherwise, apply motion directly within components or skip section-level animation wrap
-
 export default function Home() {
+  useEffect(() => {
+    document.querySelectorAll('button').forEach(btn => btn.classList.add('cursor-can-hover'));
+  }, []);
+  useEffect(() => {
+    document.querySelectorAll('a').forEach(btn => btn.classList.add('cursor-can-hover'));
+  }, []);
+  
+  useEffect(() => {
+    document.querySelectorAll('input').forEach(btn => btn.classList.add('cursor-can-hover'));
+  }, []);
+
+  useEffect(() => {
+    document.querySelectorAll('iframe').forEach(btn => btn.classList.add('cursor-can-hover'));
+  }, []);
+
+  useEffect(() => {
+    document.querySelectorAll('svg').forEach(btn => btn.classList.add('cursor-can-hover'));
+  }, []);
+
+  useEffect(() => {
+    document.querySelectorAll('link').forEach(btn => btn.classList.add('cursor-can-hover'));
+  }, []);
+
+  useEffect(() => {
+    const element = document.querySelector('#skill'); 
+    if (element) element.classList.add('cursor-can-hover');
+  }, []);
+
+  useEffect(() => {
+    const element = document.querySelector('textarea'); 
+    if (element) element.classList.add('cursor-can-hover');
+  }, []);
+
+
   return (
     <>
       <div className="fixed top-0 z-[-1] w-screen h-screen">

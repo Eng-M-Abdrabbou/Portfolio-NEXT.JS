@@ -19,6 +19,8 @@
     --border-color: #233554; /* lightest-navy */
     --scrollbar-thumb: #495670; /* dark-slate */
     --scrollbar-track: #0a192f; /* navy */
+    --primary: #11aa90;
+    --radius: 32px;
   }
 
   /* Light Theme Variables */

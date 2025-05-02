@@ -5,6 +5,7 @@ import "./globals.css";
 import ThemeToggle from './components/ThemeToggle';
 import ParticleBackground from './components/ParticleBackground';
 import Footer from './components/Footer';
+import CustomElasticCursor from '@/components/CustomElasticCursor'; // Import the custom cursor component
 
 const inter = Inter({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${firaCode.variable}`} suppressHydrationWarning>
       <body className="relative">
+        <CustomElasticCursor /> {/* Add the custom cursor component */}
         <ParticleBackground />
         <div className="relative z-10">
           <ThemeToggle />
@@ -39,9 +41,9 @@ export default function RootLayout({
 <Footer />
 
 </div>
-        
 
-        </div>
+
+</div>
       </body>
     </html>
   );

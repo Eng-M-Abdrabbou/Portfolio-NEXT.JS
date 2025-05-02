@@ -21,7 +21,6 @@ import { BiBrain } from "react-icons/bi";
 import { LiaCss3Alt, LiaJsSquare, LiaReact } from "react-icons/lia";
 import { IoIosLeaf } from "react-icons/io";
 import { ShineBorder } from "@/components/magicui/shine-border";
-
 // Define Project type with updated structure
 interface Project {
   title: string;
@@ -128,168 +127,168 @@ const Projects = () => {
   // Embla Carousel hook for the auto-play carousel
 
   return (
-    <section id="projects" className="py-82 md:py-82 text-light-slate min-h-screen flex flex-col items-center justify-center px-4">
-      <h2 className="bg-clip-text bg-gradient-to-b from-white/80 to-white/20 bg-opacity-50 text-4xl text-center text-transparent md:text-7xl">
-        Projects
-      </h2>
-      <br />
-      {/* Two-column layout container with fixed height for scrolling */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-1 md:gap-2 w-full max-w-7xl flex-grow h-[70vh] mr-8 ml-8 [&::-webkit-scrollbar]:w-12"> {/* Adjust max-w and h as needed */}
+      <section id="projects" className="py-82 md:py-82 text-light-slate min-h-screen flex flex-col items-center justify-center px-4">
+        <h2 className="bg-clip-text bg-gradient-to-b from-white/80 to-white/20 bg-opacity-50 text-4xl text-center text-transparent md:text-7xl">
+          Projects
+        </h2>
+        <br />
+        {/* Two-column layout container with fixed height for scrolling */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-1 md:gap-2 w-full max-w-7xl flex-grow h-[70vh] mr-8 ml-8 [&::-webkit-scrollbar]:w-12"> {/* Adjust max-w and h as needed */}
 
-        {/* Left Column: Project Cards (Scrollable) */}
-        <div className="md:col-span-1 overflow-y-auto pr-14 scrollbar-thin scrollbar-thumb-slate scrollbar-track-light-navy border border-slate/50 rounded-xl">
-          <h2 className="text-2xl font-bold mb-4 ml-10 text-center mt-6">Select a Project:</h2>
-          {projectsData.map((project, index) => (
-            <div // Added wrapper div for clickability
-              key={index} // Moved key to the wrapper div
-              onClick={() => setSelectedProject(project)} // Moved onClick here
-              className="cursor-pointer -mb-2 ml-6" // Moved cursor-pointer here, added negative margin for tighter spacing
-            >
-
-              <CardContainer // Original CardContainer
-                className="inter-var w-full -mb-16 -mt-16 -mr-8" // Keep original CardContainer class
-                
+          {/* Left Column: Project Cards (Scrollable) */}
+          <div className="md:col-span-1 overflow-y-auto pr-14 scrollbar-thin scrollbar-thumb-slate scrollbar-track-light-navy border border-slate/50 rounded-xl">
+            <h2 className="text-2xl font-bold mb-4 ml-10 text-center mt-6">Select a Project:</h2>
+            {projectsData.map((project, index) => (
+              <div
+                key={index}
+                onClick={() => setSelectedProject(project)}
+                className="cursor-pointer -mb-2 ml-6"
               >
-                <CardBody // Original CardBody
-                  className={`relative group/card border-slate/50 w-full h-auto rounded-xl p-4 border transition-all duration-300 ${selectedProject?.title === project.title ? 'border-neon-green shadow-neon-glow' : 'hover:border-neon-green/50 hover:shadow-md'}`} // Removed cursor-pointer
+
+                <CardContainer // Original CardContainer
+                  className="inter-var w-full -mb-16 -mt-16 -mr-8" // Keep original CardContainer class
+
                 >
-                                <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
-                  <CardItem
-                    translateZ="50"
-                    className="text-lg font-bold text-lightest-slate group-hover:text-neon-green transition-colors"
+                  <CardBody // Original CardBody
+                    className={`relative group/card border-slate/50 w-full h-auto rounded-xl p-4 border transition-all duration-300 ${selectedProject?.title === project.title ? 'border-neon-green shadow-neon-glow' : 'hover:border-neon-green/50 hover:shadow-md'}`} // Removed cursor-pointer
                   >
-                    {project.title} 
-                  </CardItem>
-                  <CardItem
-                    as="p"
-                    translateZ="60"
-                    className="text-neutral-400 text-xs max-w-sm mt-1" // Short description snippet
-                  >
-                    {project.description}
-                  </CardItem>
-                  {/* Example of adding an image if available */}
-                  {project.image && (
-                    <CardItem translateZ="100" className="w-full mt-4">
-                      <img
-                        src={project.image}
-                        height="1000"
-                        width="1000"
-                        className="w-auto max-w-[80%] mx-auto object-contain rounded-md h-[300px]"
-                        alt={project.title}
-                      />
+                                  <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
+                    <CardItem
+                      translateZ="50"
+                      className="text-lg font-bold text-lightest-slate group-hover:text-neon-green transition-colors"
+                    >
+                      {project.title}
                     </CardItem>
-                  )}
-                </CardBody>
-              </CardContainer>
-            </div>
-          ))}
-        </div>
-
-        {/* Right Column: Project Details (Scrollable) */}
-        <div className="md:col-span-2 overflow-y-auto pl-2 scrollbar-thin scrollbar-thumb-slate scrollbar-track-light-navy backdrop-blur-sm p-6 rounded-xl shadow-lg border border-slate/50">
-          {selectedProject ? (
-            <div className="animate-fade-in pr-12 pl-12"> {/* Simple fade-in animation */}
-              {/* Centered Title */}
-              <h3 className="text-4xl font-bold text-lightest-slate mb-4 text-center justify-center">{selectedProject.title}</h3>
-
-              {/* Technology Docks */}
-              <div className="flex mt-4 mb-4 w-fit mx-auto justify-center">
-              <div className="mr-4">
-              <h4 className="text-lg font-semibold text-neon-green mb-3 text-center">Frontend</h4>
-                <FloatingDock items={selectedProject.frontendTags.map(tag => ({
-                  title: tag,
-                  icon: icons[tag as keyof typeof icons] ||  <CodeIcon className="h-4 w-4 text-neon-green" />,
-                  href: '#'
-                }))} desktopClassName="bg-navy" mobileClassName="bg-navy" />
-                </div>
-                <div>
-              <h4 className="text-lg font-semibold text-neon-green mb-3 text-center">Backend</h4>
-                <FloatingDock items={selectedProject.backendTags.map(tag => ({
-                  title: tag,
-                  icon: icons[tag as keyof typeof icons] || <TerminalIcon className="h-4 w-4 text-neon-green" />,
-                  href: '#'
-                }))} desktopClassName="bg-navy" mobileClassName="bg-navy" />
-                </div>
-              </div>
-
-              {/* Centered Subtitle */}
-              <h4 className="text-lg font-semibold text-neon-green mb-3 text-center w-fit mx-auto justify-center">Project Overview</h4>
-
-              {/* Short Description */}
-              <p className="text-base text-light-slate mb-2 leading-relaxed mx-auto justify-center">{selectedProject.description}</p>
-
-              {/* Links */}
-              <div className="mb-6">
-                <h4 className="text-lg font-semibold text-neon-green mb-3">Links:</h4>
-                <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0">
-                  {selectedProject.github && (
-                    <Button className='px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28'
-                      asChild // Keep asChild
+                    <CardItem
+                      as="p"
+                      translateZ="60"
+                      className="text-neutral-400 text-xs max-w-sm mt-1" // Short description snippet
                     >
-                      <a 
-                        href={selectedProject.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${selectedProject.title} GitHub Repository`}
-                      >
-                         <span className="flex items-center gap-2"> {/* Wrap icon and text in span */}
-                           <GithubIcon className="h-4 w-4 justify-center" /> GitHub
-                         </span>
-                      </a>
-                    </Button>
-                  )}
-                  {selectedProject.live && (
-                     <Button className='px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28'
-                       asChild // Keep asChild
-                    >
-                      <a
-                        href={selectedProject.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${selectedProject.title} Live Demo`}
-                      >
-                        <span className="flex items-center gap-2 justify-center"> {/* Wrap icon and text in span */}
-                          <ExternalLinkIcon className="mr-2 h-4 w-4" /> Live Demo
-                        </span>
-                      </a>
-                    </Button>
-                  )}
-                </div>
-                {!selectedProject.github && !selectedProject.live && (
-                   <p className="text-sm text-slate mt-2">No external links available for this project.</p>
-                )}
-              </div>
-
-              <h4 className="text-lg font-semibold text-neon-green mb-4  justify-center text-center">Features Showcase</h4>
-
-              <Carousel className="w-full h-full max-w-xl mx-auto mb-8 -mt-20 text-center justify-center" plugins={[Autoplay({ delay: 1000 })]}>
-                <CarouselContent>
-                  {selectedProject.screenshots.map((screenshot, index) => (
-                    <CarouselItem key={index} className="aspect-video text-center justify-center">
-                      <div className="p-1 text-center justify-center">
+                      {project.description}
+                    </CardItem>
+                    {/* Example of adding an image if available */}
+                    {project.image && (
+                      <CardItem translateZ="100" className="w-full mt-4">
                         <img
-                          src={screenshot}
-                          alt={`Screenshot ${index + 1} of ${selectedProject.title}`}
-                          className="w-auto max-w-[90%] mx-auto object-contain rounded-md h-[500px]"
+                          src={project.image}
+                          height="1000"
+                          width="1000"
+                          className="w-auto max-w-[80%] mx-auto object-contain rounded-md h-[300px]"
+                          alt={project.title}
                         />
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
-              </Carousel>
+                      </CardItem>
+                    )}
+                  </CardBody>
+                </CardContainer>
+              </div>
+            ))}
+          </div>
+
+          {/* Right Column: Project Details (Scrollable) */}
+          <div className="md:col-span-2 overflow-y-auto pl-2 scrollbar-thin scrollbar-thumb-slate scrollbar-track-light-navy backdrop-blur-sm p-6 rounded-xl shadow-lg border border-slate/50">
+            {selectedProject ? (
+              <div className="animate-fade-in pr-12 pl-12"> {/* Simple fade-in animation */}
+                {/* Centered Title */}
+                <h3 className="text-4xl font-bold text-lightest-slate mb-4 text-center justify-center">{selectedProject.title}</h3>
+
+                {/* Technology Docks */}
+                <div className="flex mt-4 mb-4 w-fit mx-auto justify-center">
+                <div className="mr-4">
+                <h4 className="text-lg font-semibold text-neon-green mb-3 text-center">Frontend</h4>
+                  <FloatingDock items={selectedProject.frontendTags.map(tag => ({
+                    title: tag,
+                    icon: icons[tag as keyof typeof icons] ||  <CodeIcon className="h-4 w-4 text-neon-green" />,
+                    href: '#'
+                  }))} desktopClassName="bg-navy" mobileClassName="bg-navy" />
+                  </div>
+                  <div>
+                <h4 className="text-lg font-semibold text-neon-green mb-3 text-center">Backend</h4>
+                  <FloatingDock items={selectedProject.backendTags.map(tag => ({
+                    title: tag,
+                    icon: icons[tag as keyof typeof icons] || <TerminalIcon className="h-4 w-4 text-neon-green" />,
+                    href: '#'
+                  }))} desktopClassName="bg-navy" mobileClassName="bg-navy" />
+                  </div>
+                </div>
+
+                {/* Centered Subtitle */}
+                <h4 className="text-lg font-semibold text-neon-green mb-3 text-center w-fit mx-auto justify-center">Project Overview</h4>
+
+                {/* Short Description */}
+                <p className="text-base text-light-slate mb-2 leading-relaxed mx-auto justify-center">{selectedProject.description}</p>
+
+                {/* Links */}
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold text-neon-green mb-3">Links:</h4>
+                  <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0">
+                    {selectedProject.github && (
+                      <Button className='px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28'
+                        asChild // Keep asChild
+                      >
+                        <a
+                          href={selectedProject.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${selectedProject.title} GitHub Repository`}
+                        >
+                           <span className="flex items-center gap-2"> {/* Wrap icon and text in span */}
+                             <GithubIcon className="h-4 w-4 justify-center" /> GitHub
+                           </span>
+                        </a>
+                      </Button>
+                    )}
+                    {selectedProject.live && (
+                       <Button className='px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28'
+                         asChild // Keep asChild
+                      >
+                        <a
+                          href={selectedProject.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${selectedProject.title} Live Demo`}
+                        >
+                          <span className="flex items-center gap-2 justify-center"> {/* Wrap icon and text in span */}
+                            <ExternalLinkIcon className="mr-2 h-4 w-4" /> Live Demo
+                          </span>
+                        </a>
+                      </Button>
+                    )}
+                  </div>
+                  {!selectedProject.github && !selectedProject.live && (
+                     <p className="text-sm text-slate mt-2">No external links available for this project.</p>
+                  )}
+                </div>
+
+                <h4 className="text-lg font-semibold text-neon-green mb-8 mt-8  justify-center text-center">Features Showcase</h4>
+
+                <Carousel className="w-full h-full max-w-xl mx-auto mb-8 -mt-18 text-center justify-center" plugins={[Autoplay({ delay: 1500 })]}>
+                  <CarouselContent>
+                    {selectedProject.screenshots.map((screenshot, index) => (
+                      <CarouselItem key={index} className="aspect-video text-center justify-center">
+                        <div className="p-1 text-center justify-center">
+                          <img
+                            src={screenshot}
+                            alt={`Screenshot ${index + 1} of ${selectedProject.title}`}
+                            className="w-auto max-w-[90%] mx-auto object-contain rounded-md h-[500px]"
+                          />
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious />
+                  <CarouselNext />
+                </Carousel>
 
 
-            </div>
-          ) : (
-            <div className="flex items-center justify-center h-full">
-              <p className="text-xl text-slate">Select a project from the left to view details.</p>
-            </div>
-          )}
+              </div>
+            ) : (
+              <div className="flex items-center justify-center h-full">
+                <p className="text-xl text-slate">Select a project from the left to view details.</p>
+              </div>
+            )}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
   );
 };
 
