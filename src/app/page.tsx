@@ -40,7 +40,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const element = document.querySelector('#skill'); 
+    const element = document.querySelector('#hover'); 
     if (element) element.classList.add('cursor-can-hover');
   }, []);
 

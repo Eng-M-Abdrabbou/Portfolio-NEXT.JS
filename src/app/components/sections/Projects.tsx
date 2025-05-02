@@ -95,7 +95,6 @@ const projectsData: Project[] = [
     image: "/img/p3.PNG",
     screenshots: ["/img/BASYS/Dashboard.png", "/img/BASYS/General Attendance Report.png", "/img/BASYS/MusterRoll.PNG", "/img/BASYS/Picture1.png"] // Placeholder screenshots
   },
-  // Add more projects as needed
   {
     title: "Weather Forecast & Analysis App",
     description: "ReactJS frontend & Java Spring Boot backend weather app with real-time data, AQI & interactive map via OpenWeatherMap API.",
@@ -104,7 +103,7 @@ const projectsData: Project[] = [
     github: null, // Add actual link if available
     live: "Weather App Demo", // Assuming "Weather App Demo" is the live link text, replace with actual URL if available
     image: "/img/p4.png", 
-    screenshots: ["/img/p4.png", "/img/p5.png", "/img/p1.jpg"] // Placeholder screenshots
+    screenshots: ["/img/wthr/wthrInfo.png", "/img/wthr/Map.png", "/img/wthr/HrForecast.png","/img/wthr/AQI.png"] // Placeholder screenshots
   },
   {
     title: "This Portfolio",
@@ -114,7 +113,7 @@ const projectsData: Project[] = [
     github: "https://github.com/YOUR_GITHUB/YOUR_REPO", // Replace with actual GitHub link for this repo
     live: null, // Add live link if available
     image: "/img/p5.png", 
-    screenshots: ["/img/p5.png", "/img/p1.jpg", "/img/p2.png"] // Placeholder screenshots
+    screenshots: ["/img/portfolio/1.png", "/img/portfolio/2.png", "/img/portfolio/3.png","/img/portfolio/4.png","/img/portfolio/5.png"] // Placeholder screenshots
   },
 ];
 
@@ -173,7 +172,7 @@ const Projects = () => {
                           src={project.image}
                           height="1000"
                           width="1000"
-                          className="w-auto max-w-[80%] mx-auto object-contain rounded-md h-[300px]"
+                          className="w-auto max-w-[90%] mx-auto object-contain rounded-md h-[200px]"
                           alt={project.title}
                         />
                       </CardItem>

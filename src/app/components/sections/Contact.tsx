@@ -104,19 +104,19 @@ const Contact = () => {
            <div className="bg-opacity-50 rounded-xl p-4 bg-navy p-8 rounded-lg shadow-xl w-full text-left flex flex-col justify-center border border-lightest-navy">
                <h2 className="text-3xl md:text-4xl font-semibold text-lightest-slate mb-8 text-center p-4">Contact Information</h2>
                <div className="space-y-6 text-light-slate">
-                   <div className="rounded-xl p-4 bg-lightest-navy border border-light-slate text-lightest-slate text-sm rounded-lg focus:ring-neon-green focus:border-neon-green flex items-center p-4 border border-light-slate rounded-lg shadow-md">
+                   <div id='hover' className="rounded-xl p-4 bg-lightest-navy border border-light-slate text-lightest-slate text-sm rounded-lg focus:ring-neon-green focus:border-neon-green flex items-center p-4 border border-light-slate rounded-lg shadow-md">
                        {/* Icon Placeholder - Replace with actual icons */}
-                       <span className="mr-4 text-neon-green text-xl"><img src="/img/location.svg" alt="Location" width={24} height={24} /></span>
+                       <span className="mr-4 text-neon-green text-xl" id='hover'><img src="/img/location.svg" alt="Location" width={24} height={24} /></span>
                        <p>Abu Dhabi, UAE</p>
                    </div>
-                   <div className="rounded-xl p-4 bg-lightest-navy border border-light-slate text-lightest-slate text-sm rounded-lg focus:ring-neon-green focus:border-neon-green flex items-center p-4 border border-light-slate rounded-lg shadow-md">
+                   <div id='hover' className="rounded-xl p-4 bg-lightest-navy border border-light-slate text-lightest-slate text-sm rounded-lg focus:ring-neon-green focus:border-neon-green flex items-center p-4 border border-light-slate rounded-lg shadow-md">
                         {/* Icon Placeholder - Replace with actual icons */}
-                       <span className="mr-4 text-neon-green text-xl"><img src="/img/phone.svg" alt="Phone" width={24} height={24} /></span>
+                       <span className="mr-4 text-neon-green text-xl" id='hover'><img src="/img/phone.svg" alt="Phone" width={24} height={24} /></span>
                        <p>+971 56 696 7995</p>
                    </div>
-                   <div className="rounded-xl p-4 bg-lightest-navy border border-light-slate text-lightest-slate text-sm rounded-lg focus:ring-neon-green focus:border-neon-green flex items-center p-4 border border-light-slate rounded-lg shadow-md">
+                   <div id='hover' className="rounded-xl p-4 bg-lightest-navy border border-light-slate text-lightest-slate text-sm rounded-lg focus:ring-neon-green focus:border-neon-green flex items-center p-4 border border-light-slate rounded-lg shadow-md">
                         {/* Icon Placeholder - Replace with actual icons */}
-                       <span className="mr-4 text-neon-green text-xl"><img src="/img/mail.svg" alt="Email" width={24} height={24} /></span>
+                       <span className="mr-4 text-neon-green text-xl" id='hover'><img src="/img/mail.svg" alt="Email" width={24} height={24} /></span>
                        <p>Mahmoud.F.Abdrabbou@gmail.com</p>
                    </div>
                </div>
