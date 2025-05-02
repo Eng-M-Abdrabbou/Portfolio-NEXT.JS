@@ -12,6 +12,7 @@ import {
   CarouselNext,
 } from "@/components/ui/carousel"; // Import Carousel components
 import useEmblaCarousel from 'embla-carousel-react'; // Assuming this hook is available
+import Autoplay from 'embla-carousel-autoplay';
 import { Button } from "@/components/ui/button"; // Import Button component
 import { GithubIcon, ExternalLinkIcon, CodeIcon, TerminalIcon, LayoutDashboardIcon } from 'lucide-react'; // Import icons from lucide-react, added CodeIcon, TerminalIcon, and LayoutDashboardIcon
 import { SiNextdotjs, SiTypescript, SiTailwindcss, SiReact, SiJavascript, SiBootstrap, SiHtml5, SiCss3, SiSpringboot, SiPython, SiNodedotjs, SiMysql, SiFlask, SiPandas, SiScikitlearn, SiFlutter } from "react-icons/si";
@@ -73,7 +74,7 @@ const projectsData: Project[] = [
     github: "https://github.com/YOUR_GITHUB/VisionAid", // Replace with actual link
     live: null, // Add live link if available
     image: "/img/p1.jpg", 
-    screenshots: ["/img/p1.jpg", "/img/p2.png", "/img/p3.PNG"] // Placeholder screenshots
+    screenshots: ["/img/VisualAid/A (1).jpeg", "/img/VisualAid/A(2).jpeg", "/img/VisualAid/A (3).jpeg", "/img/VisualAid/A(4).jpeg", "/img/VisualAid/A(5).jpeg", "/img/VisualAid/A(6).jpeg","/img/VisualAid/A(7).jpeg", "/img/VisualAid/A (8).jpeg", "/img/VisualAid/A (9).jpeg","/img/VisualAid/A(10).jpeg"] // Placeholder screenshots
   },
   {
     title: "StreamHUB",
@@ -83,7 +84,7 @@ const projectsData: Project[] = [
     github: "https://github.com/YOUR_GITHUB/StreamHUB", 
     live: null,
     image: "/img/p2.png",
-    screenshots: ["/img/p2.png", "/img/p3.PNG", "/img/p4.png"] // Placeholder screenshots
+    screenshots: ["/img/StreamHUB/Picture1.png", "/img/StreamHUB/Picture2.jpeg", "/img/StreamHUB/Picture3.jpeg", "/img/StreamHUB/Picture4.jpeg"] // Placeholder screenshots
   },
   {
     title: "BASYS (Biometric Attendance System)",
@@ -93,7 +94,7 @@ const projectsData: Project[] = [
     github: "https://github.com/YOUR_GITHUB/BASYS", 
     live: null,
     image: "/img/p3.PNG",
-    screenshots: ["/img/p3.PNG", "/img/p4.png", "/img/p5.png"] // Placeholder screenshots
+    screenshots: ["/img/BASYS/Dashboard.png", "/img/BASYS/General Attendance Report.png", "/img/BASYS/MusterRoll.PNG", "/img/BASYS/Picture1.png"] // Placeholder screenshots
   },
   // Add more projects as needed
   {
@@ -125,18 +126,6 @@ const Projects = () => {
   );
 
   // Embla Carousel hook for the auto-play carousel
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, []); // Add Autoplay plugin if installed: [Autoplay({ delay: 3000 })]
-
-  // Manual auto-play implementation if Autoplay plugin is not used
-  useEffect(() => {
-    if (!emblaApi) return;
-
-    const autoplay = setInterval(() => {
-      emblaApi.scrollNext();
-    }, 3000); // Auto-play every 3 seconds
-
-    return () => clearInterval(autoplay);
-  }, [emblaApi]);
 
   return (
     <section id="projects" className="py-82 md:py-82 text-light-slate min-h-screen flex flex-col items-center justify-center px-4">
@@ -149,7 +138,7 @@ const Projects = () => {
 
         {/* Left Column: Project Cards (Scrollable) */}
         <div className="md:col-span-1 overflow-y-auto pr-14 scrollbar-thin scrollbar-thumb-slate scrollbar-track-light-navy border border-slate/50 rounded-xl">
-          <h2 className="text-2xl font-bold mb-4 ml-10 text-center">Select a Project:</h2>
+          <h2 className="text-2xl font-bold mb-4 ml-10 text-center mt-6">Select a Project:</h2>
           {projectsData.map((project, index) => (
             <div // Added wrapper div for clickability
               key={index} // Moved key to the wrapper div
@@ -185,7 +174,7 @@ const Projects = () => {
                         src={project.image}
                         height="1000"
                         width="1000"
-                        className="w-full rounded-xl group-hover/card:shadow-xl"
+                        className="w-auto max-w-[80%] mx-auto object-contain rounded-md h-[300px]"
                         alt={project.title}
                       />
                     </CardItem>
@@ -204,7 +193,7 @@ const Projects = () => {
               <h3 className="text-4xl font-bold text-lightest-slate mb-4 text-center justify-center">{selectedProject.title}</h3>
 
               {/* Technology Docks */}
-              <div className="flex mt-12 mb-12 w-fit mx-auto justify-center">
+              <div className="flex mt-4 mb-4 w-fit mx-auto justify-center">
               <div className="mr-4">
               <h4 className="text-lg font-semibold text-neon-green mb-3 text-center">Frontend</h4>
                 <FloatingDock items={selectedProject.frontendTags.map(tag => ({
@@ -227,7 +216,7 @@ const Projects = () => {
               <h4 className="text-lg font-semibold text-neon-green mb-3 text-center w-fit mx-auto justify-center">Project Overview</h4>
 
               {/* Short Description */}
-              <p className="text-base text-light-slate mb-6 leading-relaxed mx-auto justify-center">{selectedProject.description}</p>
+              <p className="text-base text-light-slate mb-2 leading-relaxed mx-auto justify-center">{selectedProject.description}</p>
 
               {/* Links */}
               <div className="mb-6">
@@ -271,19 +260,17 @@ const Projects = () => {
                 )}
               </div>
 
-              {/* Features Title 1 */}
-              <h4 className="text-lg font-semibold text-neon-green mb-3 text-center">Features Showcase</h4>
+              <h4 className="text-lg font-semibold text-neon-green mb-4  justify-center text-center">Features Showcase</h4>
 
-              {/* Carousel 1 */}
-              <Carousel className="w-full max-w-xl mx-auto mb-6"> {/* Adjust max-w as needed */}
+              <Carousel className="w-full h-full max-w-xl mx-auto mb-8 -mt-20 text-center justify-center" plugins={[Autoplay({ delay: 1000 })]}>
                 <CarouselContent>
                   {selectedProject.screenshots.map((screenshot, index) => (
-                    <CarouselItem key={index} className="aspect-video"> {/* Use aspect-video for rectangular shape */}
-                      <div className="p-1">
+                    <CarouselItem key={index} className="aspect-video text-center justify-center">
+                      <div className="p-1 text-center justify-center">
                         <img
                           src={screenshot}
                           alt={`Screenshot ${index + 1} of ${selectedProject.title}`}
-                          className="w-max h-max object-cover rounded-md"
+                          className="w-auto max-w-[90%] mx-auto object-contain rounded-md h-[500px]"
                         />
                       </div>
                     </CarouselItem>
@@ -293,27 +280,6 @@ const Projects = () => {
                 <CarouselNext />
               </Carousel>
 
-              {/* Features Title 2 */}
-              <h4 className="text-lg font-semibold text-neon-green mb-3 text-center">More Features (Auto-play)</h4>
-
-              {/* Carousel 2 (Auto-play) */}
-              <Carousel className="w-full max-w-xl mx-auto mb-6"> {/* Adjust max-w as needed */}
-                 <CarouselContent ref={emblaRef}> {/* Apply ref to CarouselContent */}
-                  {selectedProject.screenshots.map((screenshot, index) => (
-                    <CarouselItem key={index} className="aspect-video"> {/* Use aspect-video for rectangular shape */}
-                      <div className="p-1">
-                        <img
-                          src={screenshot}
-                          alt={`Screenshot ${index + 1} of ${selectedProject.title}`}
-                          className="w-full h-full object-cover rounded-md"
-                        />
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
-              </Carousel>
 
             </div>
           ) : (
