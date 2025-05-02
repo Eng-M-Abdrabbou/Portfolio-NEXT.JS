@@ -84,7 +84,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-4xl mb-7 sm:text-5xl md:text-6xl lg:text-7xl font-bold text-lightest-slate"
             >
-              Mahmoud Abdrabbou.
+              Mahmoud <br /> Abdrabbou.
             </motion.h1>
           </div>
         </div>
