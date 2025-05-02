@@ -17,10 +17,13 @@ const Hero = () => {
     if (timerRef.current) {
       clearTimeout(timerRef.current);
     }
-    // Start a new timer
+  
     timerRef.current = setTimeout(() => {
       setCurrentImageSrc(gifImageSrc);
-    }, 800); // 2 seconds delay
+  
+      // const audio = new Audio('your-audio-file.mp3'); 
+      // audio.play();
+    }, 500); // 800ms delay
   };
 
   const handleMouseLeave = () => {

@@ -20,8 +20,46 @@ const firaCode = Fira_Code({
 });
 
 export const metadata: Metadata = {
-  title: "Mahmoud Abdrabbou | Software Engineer",
-  description: "Mahmoud Abdrabbou's Full Stack Developer Portfolio",
+  title: "Mahmoud Abdrabbou | Software Engineer & Full-Stack Developer",
+  description:
+    "Explore the portfolio of Mahmoud Abdrabbou, Software Engineer & Full-Stack Developer. Discover my latest work and innovative projects. Let's build something amazing together!",
+  keywords: [
+    "Mahmoud Abdrabbou",
+    "portfolio",
+    "developer",
+    "engineer",
+    "web development",
+    "software development",
+    "projects",
+    "skills",
+  ],
+  authors: [{ name: "Mahmoud Abdrabbou" }],
+  openGraph: {
+    title: "Your Portfolio | Software Engineer & Full-Stack Developer",
+    description:
+      "Discover the portfolio of Mahmoud Abdrabbou, Software Engineer & Full-Stack Developer.",
+    url: "https://yourportfolio.site", // Replace with actual URL
+    images: [
+      {
+        url: "/assets/seo/og-image.png", // Ensure this image exists
+        width: 800,
+        height: 600,
+        alt: "Portfolio preview",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Your Portfolio | Software Engineer & Full-Stack Developer",
+    description:
+      "Explore Mahmoud Abdrabbou's portfolio of innovative projects.",
+    images: ["/assets/seo/og-image.png"], // Ensure this image exists
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
