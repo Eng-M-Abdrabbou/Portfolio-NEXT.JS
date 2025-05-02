@@ -17,7 +17,7 @@ const skillsData = {
     "🏆 Winner: UAE National Scientific Excellence Competition",
     "🏆 Honors: 5 consecuitve times in university's honor list",
     "🏆 Honors: 2 consecuitve times in Dean's honor list",
-    "🎖️ Top 5: Full-ride scholarship for top 5 students nationwide",
+    "🎖️ Top 5: AAU Full-ride scholarship for top 5 students nationwide",
     "🏆 Golden visa: Distinguished student category",
     "🏆 100%: perfect 100% highschool score in all subjects",
     "🎖️ IEEE Member & Competition Participant",
