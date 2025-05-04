@@ -13,6 +13,7 @@ const ThemeToggle = () => {
     } else {
       // Default to dark theme if no theme is stored
       document.documentElement.setAttribute('data-theme', 'dark');
+      document.documentElement.setAttribute('data-theme', 'dark');
     }
   }, []);
 
@@ -27,15 +28,16 @@ const ThemeToggle = () => {
   const ariaLabel = isDark ? 'Switch to light theme' : 'Switch to dark theme';
 
   return (
-    <button
-      onClick={toggleTheme}
-      aria-label={ariaLabel}
-      aria-pressed={theme === 'light'}
-      className="fixed top-4 left-4 z-[1000] p-2 rounded-full bg-gray-800 text-white shadow-lg transition-colors duration-300 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500"
-    >
-      {isDark ? (
-        // Moon icon for dark theme
-        <svg
+    <div className="fixed top-4 left-4 z-[1000] flex items-center space-x-2">
+      <button
+        onClick={toggleTheme}
+        aria-label={ariaLabel}
+        aria-pressed={theme === 'light'}
+        className="p-2 rounded-full bg-gray-800 text-white shadow-lg transition-colors duration-300 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500"
+      >
+        {isDark ? (
+          // Moon icon for dark theme
+          <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
@@ -73,7 +75,57 @@ const ThemeToggle = () => {
           <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
         </svg>
-      )}
+        )}
+      </button>
+      <AutoScrollButton />
+    </div>
+  );
+};
+
+import gsap from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const AutoScrollButton = () => {
+  const [autoScroll, setAutoScroll] = useState(false);
+
+  useEffect(() => {
+    let auto: gsap.core.Timeline | null = null;
+
+    if (autoScroll) {
+      auto = gsap.timeline({ repeat: -1 })
+        .to(
+          {},
+          {
+            onUpdate: () => {
+              window.scrollBy(0, 3);
+            },
+            duration: 0.01,
+            ease: "none",
+          }
+        );
+
+      window.addEventListener("wheel", () => auto?.kill());
+    }
+
+    return () => {
+      auto?.kill();
+      window.removeEventListener("wheel", () => auto?.kill());
+    };
+  }, [autoScroll]);
+
+  const toggleAutoScroll = () => {
+    setAutoScroll(!autoScroll);
+  };
+
+  return (
+    <button
+      onClick={toggleAutoScroll}
+      aria-label={autoScroll ? 'Disable auto scroll' : 'Enable auto scroll'}
+      className="p-2 rounded-full bg-gray-800 text-neon-green shadow-lg transition-colors duration-300 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500"
+    >
+      {autoScroll ? 'Stop' : 'Auto Scroll'}
     </button>
   );
 };
