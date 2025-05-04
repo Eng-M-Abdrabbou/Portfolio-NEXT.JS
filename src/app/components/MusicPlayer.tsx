@@ -22,6 +22,29 @@ const AudioPlayer = () => {
   ];
 
   useEffect(() => {
+    const audio = audioRef.current;
+    if (audio) {
+      // Set initial duration for the first track
+      const initialTrack = tracks[currentTrackIndex];
+      audio.src = initialTrack.file;
+      
+      const setInitialDuration = () => {
+        if (audio.duration > 0) {
+          setDuration(audio.duration);
+          audio.removeEventListener('loadedmetadata', setInitialDuration);
+        }
+      };
+
+      audio.addEventListener('loadedmetadata', setInitialDuration);
+      
+      // Fallback method to set duration
+      if (audio.duration > 0) {
+        setDuration(audio.duration);
+      }
+    }
+  }, [currentTrackIndex]);
+
+  useEffect(() => {
     if (!audioContextRef.current) {
       audioContextRef.current = new AudioContext();
     }
