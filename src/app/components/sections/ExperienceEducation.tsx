@@ -16,7 +16,7 @@ const ExperienceEducation = () => {
         </h2>
         <div className="flex justify-center mb-8 border border-light-slate rounded-lg overflow-hidden"> {/* Added border and rounded corners */}
           <button
-            className={`flex-1 px-6 py-1 text-lg font-medium text-center focus:outline-none transition-colors duration-300 ${
+            className={`cursor-can-hover flex-1 px-6 py-1 text-lg font-medium text-center focus:outline-none transition-colors duration-300 ${
               activeTab === 'work'
                 ? 'bg-light-slate text-navy' // Adjusted active colors
                 : 'bg-transparent text-light-slate hover:bg-light-navy' // Adjusted inactive colors
@@ -26,7 +26,7 @@ const ExperienceEducation = () => {
             Work
           </button>
           <button
-            className={`flex-1 px-6 py-1 text-lg font-medium text-center focus:outline-none transition-colors duration-300 ${
+            className={`cursor-can-hover flex-1 px-6 py-1 text-lg font-medium text-center focus:outline-none transition-colors duration-300 ${
               activeTab === 'education'
                 ? 'bg-light-slate text-navy' // Adjusted active colors
                 : 'bg-transparent text-light-slate hover:bg-light-navy' // Adjusted inactive colors
@@ -58,7 +58,7 @@ const ExperienceEducation = () => {
                   {/* You can replace the span with an img tag for the logo */}
                   {/* <img src="/path/to/ieee-logo.png" alt="IEEE Logo" className="w-full h-full rounded-full object-cover" /> */}
                 </div>
-                <div className="p-6 bg-transparent backdrop-blur-sm border border-lightest-slate rounded-xl shadow-md transition-all duration-300 hover:border-neon-green hover:bg-lightest-slate/5"> {/* Transparent background, border, hover effects */}
+                <div className="p-6 bg-transparent cursor-can-hover backdrop-blur-sm border border-lightest-slate rounded-xl shadow-md transition-all duration-300 hover:border-neon-green hover:bg-lightest-slate/5"> {/* Transparent background, border, hover effects */}
                   <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
                     <h4 className="text-lg font-medium text-lightest-slate">Software Engineer | Full Stack & AI/ML</h4>
                     <p className="text-sm text-light-slate font-mono">February 2025 – Present</p>
@@ -82,7 +82,7 @@ const ExperienceEducation = () => {
                   {/* You can replace the span with an img tag for the logo */}
                   {/* <img src="/path/to/ftc-logo.png" alt="Federal Transformers Company LLC Logo" className="w-full h-full rounded-full object-cover" /> */}
                 </div>
-                <div className="p-6 bg-transparent backdrop-blur-sm border border-lightest-slate rounded-xl shadow-md transition-all duration-300 hover:border-neon-green hover:bg-lightest-slate/5"> {/* Transparent background, border, hover effects */}
+                <div className="p-6 bg-transparent cursor-can-hover backdrop-blur-sm border border-lightest-slate rounded-xl shadow-md transition-all duration-300 hover:border-neon-green hover:bg-lightest-slate/5"> {/* Transparent background, border, hover effects */}
                   <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
                     <h4 className="text-lg font-medium text-lightest-slate">Software Engineer in the Software Development Team</h4>
                     <p className="text-sm text-light-slate font-mono">September 2024 – March 2025</p>
@@ -119,7 +119,7 @@ const ExperienceEducation = () => {
                    {/* You can replace the span with an img tag for the logo */}
                    {/* <img src="/path/to/aau-logo.png" alt="Al Ain University Logo" className="w-full h-full rounded-full object-cover" /> */}
                  </div>
-                 <div className="p-6 bg-transparent border border-lightest-slate rounded-xl shadow-md transition-all duration-300 hover:border-neon-green hover:bg-lightest-slate/5"> {/* Transparent background, border, hover effects */}
+                 <div className="p-6 bg-transparent cursor-can-hover backdrop-blur-sm border border-lightest-slate rounded-xl shadow-md transition-all duration-300 hover:border-neon-green hover:bg-lightest-slate/5"> {/* Transparent background, border, hover effects */}
                   <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
                     <h4 className="text-lg font-medium text-lightest-slate">Bachelor of Science in Software Engineering (Honors) - ABET Accredited</h4>
                     <p className="text-sm text-light-slate font-mono">Graduated on 2025/Feb</p>

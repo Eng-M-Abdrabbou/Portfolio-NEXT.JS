@@ -5,7 +5,8 @@ import "./globals.css";
 import ThemeToggle from './components/ThemeToggle';
 import ParticleBackground from './components/ParticleBackground';
 import Footer from './components/Footer';
-import CustomElasticCursor from '@/components/CustomElasticCursor'; // Import the custom cursor component
+import CustomElasticCursor from '@/components/CustomElasticCursor'; 
+import MusicPlayer from './components/MusicPlayer'; 
 
 const inter = Inter({
   subsets: ["latin"],
@@ -70,11 +71,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${firaCode.variable}`} suppressHydrationWarning>
       <body className="relative">
-        <CustomElasticCursor /> {/* Add the custom cursor component */}
+        <CustomElasticCursor /> 
         <ParticleBackground />
         <div className="relative z-10">
           <ThemeToggle />
           {children}
+          <MusicPlayer /> 
 <div className="w-[85%] mx-auto">
 <Footer />
 

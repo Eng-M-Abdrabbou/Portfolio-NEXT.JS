@@ -89,7 +89,7 @@ const Hero = () => {
           </div>
         </div>
         {/* Spline Component */}
-        <div className="absolute inset-0 w-screen h-screen z-[-10] pointer-events-auto animate-subtle-move-5 ml-600- mt-16 "> {/* Container for Spline */}
+        <div className="absolute inset-0 w-screen h-screen z-[-10] pointer-events-auto animate-subtle-move-5 ml-2000- mt-820 "> {/* Container for Spline */}
           <Spline
               scene="https://prod.spline.design/lkGNG3gU2mkL3QWP/scene.splinecode"
             className="w-full h-full"

@@ -35,7 +35,7 @@ export default function CustomElasticCursor() {
     const handleMouseEnter = (e: MouseEvent) => {
       const target = checkHover(e.target!)
       if (target) {
-        console.log('Mouse entered hoverable element', target);
+  //      console.log('Mouse entered hoverable element', target);
         setIsHovering(true)
         setHoverBounds(target.getBoundingClientRect())
       }
@@ -43,7 +43,7 @@ export default function CustomElasticCursor() {
 
     const handleMouseLeave = (e: MouseEvent) => {
       if (!checkHover(e.relatedTarget!)) {
-        console.log('Mouse left hoverable element');
+     //  console.log('Mouse left hoverable element');
         setIsHovering(false)
         setHoverBounds(null)
       }
@@ -70,11 +70,11 @@ export default function CustomElasticCursor() {
 
   const animateBlob = () => {
     if (!blobRef.current || !dotRef.current || !maskCircleRef.current) {
-      console.log('Refs not available in animateBlob:', { blob: blobRef.current, dot: dotRef.current, maskCircle: maskCircleRef.current });
+ //     console.log('Refs not available in animateBlob:', { blob: blobRef.current, dot: dotRef.current, maskCircle: maskCircleRef.current });
       return;
     }
 
-    console.log('Mouse position in animateBlob:', { x: mouse.x, y: mouse.y });
+   // console.log('Mouse position in animateBlob:', { x: mouse.x, y: mouse.y });
 
     // Update dot position
     gsap.set(dotRef.current, {
@@ -83,7 +83,7 @@ export default function CustomElasticCursor() {
     })
 
     // Update mask circle position
-    console.log('Updating mask circle position:', { x: mouse.x, y: mouse.y });
+   // console.log('Updating mask circle position:', { x: mouse.x, y: mouse.y });
     gsap.set(maskCircleRef.current, {
       attr: {
         cx: mouse.x,

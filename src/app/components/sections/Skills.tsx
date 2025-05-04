@@ -31,7 +31,6 @@ const skillsData = {
 
 const SkillCategory = ({ title, skills, icon}: { title: string; skills: string[]; icon: React.ReactNode }) => {
   // Create an icon mapping for skills
-   
   type SkillIconMap = Record<string, string>;
   const skillIcons: SkillIconMap = {
     "Java": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
@@ -96,7 +95,7 @@ const SkillCategory = ({ title, skills, icon}: { title: string; skills: string[]
             <div 
             id='skill'
               key={index}
-              className="flex items-center bg-lightest-navy/20 backdrop-blur-sm rounded-xl p-2 border border-lightest-navy/30 hover:border-neon-green hover:bg-lightest-navy/30 transition-all duration-300"
+              className=" cursor-can-hover flex items-center bg-lightest-navy/20 backdrop-blur-sm rounded-xl p-2 border border-lightest-navy/30 hover:border-neon-green hover:bg-lightest-navy/30 transition-all duration-300"
            
             >
               {iconSrc && ( // Conditionally render the image only if iconSrc exists

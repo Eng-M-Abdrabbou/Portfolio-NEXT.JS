@@ -78,7 +78,7 @@ const projectsData: Project[] = [
   {
     title: "StreamHUB",
     description: "AI-powered movie streaming platform with chat, forums, AI recommenders, and admin controls.",
-    frontendTags: ["Bootstrap"],
+    frontendTags: ["Bootstrap","HTML","CSS","JavaScript"],
     backendTags: ["Python", "Node.js", "Express", "MySQL", "Flask", "Pandas", "SciKit-Learn"],
     github: "https://github.com/YOUR_GITHUB/StreamHUB", 
     live: null,
@@ -149,22 +149,22 @@ const Projects = () => {
 
                 >
                   <CardBody // Original CardBody
-                    className={`relative group/card border-slate/50 w-full h-auto rounded-xl p-4 border transition-all duration-300 ${selectedProject?.title === project.title ? 'border-neon-green shadow-neon-glow' : 'hover:border-neon-green/50 hover:shadow-md'}`} // Removed cursor-pointer
+                    className={`  relative group/card border-slate/50 w-full h-auto rounded-xl p-4 border transition-all duration-300 ${selectedProject?.title === project.title ? 'border-neon-green shadow-neon-glow' : 'hover:border-neon-green/50 hover:shadow-md'}`} // Removed cursor-pointer
                   >
                                   <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
                     <CardItem
                       translateZ="50"
-                      className="text-lg font-bold text-lightest-slate group-hover:text-neon-green transition-colors"
+                      className=" justify-center text-center text-lg font-bold text-lightest-slate group-hover:text-neon-green transition-colors"
                     >
                       {project.title}
                     </CardItem>
-                    <CardItem
+                    {/* <CardItem
                       as="p"
                       translateZ="60"
                       className="text-neutral-400 text-xs max-w-sm mt-1" // Short description snippet
                     >
                       {project.description}
-                    </CardItem>
+                    </CardItem> */}
                     {/* Example of adding an image if available */}
                     {project.image && (
                       <CardItem translateZ="100" className="w-full mt-4">

@@ -6,10 +6,10 @@ import { blogPosts } from './posts';
 
 const BlogIndexPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white">
+    <div className="min-h-screen text-gray-900 dark:text-white">
       <Navbar /> {/* Add Navbar */}
       <div className="container mx-auto px-4 py-24"> {/* Adjusted padding for fixed navbar */}
-        <h1 className="text-5xl font-extrabold mb-12 text-center text-gray-900 dark:text-white">Blog</h1>
+        <h1 className="text-5xl font-extrabold mb-12 text-center">Blog</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"> {/* Increased gap */}
           {blogPosts.map((post) => (
             <Link key={post.slug} href={`/blog/${post.slug}`} passHref>
