@@ -177,7 +177,6 @@ const AudioPlayer = () => {
 
   useEffect(() => {
     if (audioRef.current && audioContextRef.current && audioContextRef.current.state !== 'closed') {
-      audioRef.current.load();
       if (isPlaying) {
         audioRef.current.play().catch(error => console.error("Error playing audio:", error));
         visualize();
@@ -188,14 +187,14 @@ const AudioPlayer = () => {
   }, [currentTrackIndex, isPlaying]);
 
   return (
-    <div className="fixed bottom-5 right-5 bg-gray-800/80 backdrop-blur-xl text-white p-4 rounded-xl shadow-lg flex flex-col space-y-3 w-72 border border-gray-700/50 transition-all duration-300">
+    <div className="fixed bottom-5 right-5 bg-navy backdrop-blur-sm bg-opacity-10 text-white p-4 rounded-xl shadow-lg flex flex-col space-y-3 w-72 border border-gray-700/50 transition-all duration-300">
       <div className="relative h-full w-full">
         {/* Visualization Bars */}
-        <div className="absolute top-0 left-0 w-full h-full flex gap-1 justify-center items-end p-2 opacity-50 pointer-events-none mb-16">
+        <div className="absolute bottom-20 top-0 left-0 w-full h-full flex gap-1 justify-center items-end p-2 opacity-50 pointer-events-none mb-16">
           {[...Array(20)].map((_, i) => (
             <div
               key={i}
-              className="w-2 bg-gradient-to-t from-green-400 to-cyan-400 rounded-xl"
+              className="w-2 bg-gradient-to-t from-neon-green to-neon-green rounded-xl"
               style={{ height: `calc(var(--visualizer-height-${i}) * 80px)` }}
             />
           ))}
@@ -207,20 +206,20 @@ const AudioPlayer = () => {
           <img
             src={tracks[currentTrackIndex]?.image || '/img/Portfolio/1.png'} // Placeholder if no image
             alt="Album Art"
-            className="w-16 h-16 rounded-xl object-cover shadow-md"
+            className="w-16 h-16 rounded-xl object-cover shadow-md mb-12"
           />
 
           <div className="flex flex-col flex-grow">
             {/* Track Name and Author */}
             <p className="text-white/90 font-medium truncate text-sm">
-              {tracks[currentTrackIndex]?.name}
+              Title: {tracks[currentTrackIndex]?.name}
             </p>
             <p className="text-white/70 text-xs truncate">
-              {tracks[currentTrackIndex]?.author || 'Unknown Artist'}
+              Author: {tracks[currentTrackIndex]?.author || 'Unknown Artist'}
             </p>
 
             {/* Time and Seek Bar */}
-            <div className="flex items-center gap-2 mt-2">
+            <div className="flex items-center gap-1 mt-3">
               <span className="text-white/80 text-xs">{formatTime(currentTime)}</span>
               <input
                 type="range"
@@ -232,13 +231,13 @@ const AudioPlayer = () => {
                 onChange={handleSeek}
                 onMouseUp={handleSeekEnd}
                 onTouchEnd={handleSeekEnd}
-                className="flex-grow h-1 bg-gray-600 rounded-lg appearance-none cursor-pointer accent-cyan-400"
+                className="flex-grow h-1 bg-gray-600 rounded-lg appearance-none cursor-pointer accent-neon-green"
               />
               <span className="text-white/80 text-xs">{formatTime(duration)}</span>
             </div>
 
             {/* Playback Controls */}
-            <div className="flex items-center justify-center mt-3 space-x-12">
+            <div className="w-full justify-center mt-3 space-x-6 mr-6">
               <button
                 onClick={() => setCurrentTrackIndex((prev) => (prev - 1 + tracks.length) % tracks.length)}
                 className="p-1 hover:bg-white/10 rounded-full transition-all"
@@ -248,7 +247,7 @@ const AudioPlayer = () => {
 
               <button
                 onClick={togglePlay}
-                className="p-2 bg-gradient-to-br from-cyan-400 to-green-500 rounded-full shadow-lg hover:scale-105 transition-transform"
+                className="p-2 bg-gradient-to-br from-neon-green to-neon-green-900 rounded-full shadow-lg hover:scale-105 transition-transform"
               >
                 {isPlaying ? (
                   <FaPause className="text-white text-xl" />
@@ -268,7 +267,7 @@ const AudioPlayer = () => {
         </div>
 
         {/* Volume Control */}
-        <div className="mt-4 flex items-center w-full gap-2 justify-center">
+        <div className="mt-4 flex items-center w-full gap-2 justify-center mb-8">
           <FaVolumeDown className="text-white/80" />
           <input
             type="range"
@@ -277,7 +276,7 @@ const AudioPlayer = () => {
             step="0.01"
             value={volume}
             onChange={handleVolume}
-            className="w-full h-1 bg-gray-600 rounded-lg appearance-none cursor-pointer accent-cyan-400"
+            className="w-full h-1 bg-gray-600 rounded-lg appearance-none cursor-pointer accent-neon-green"
           />
           <FaVolumeUp className="text-white/80" />
         </div>
