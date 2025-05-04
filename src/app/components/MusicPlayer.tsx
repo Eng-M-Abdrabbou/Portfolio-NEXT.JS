@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from 'react';
-import { FaPlay, FaPause, FaBackward, FaForward } from 'react-icons/fa';
+import { FaVolumeUp, FaVolumeDown, FaPlay, FaPause, FaBackward, FaForward } from 'react-icons/fa';
 
 const AudioPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -97,21 +97,28 @@ const AudioPlayer = () => {
   }, [currentTrackIndex, isPlaying]);
 
   return (
-    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 w-full max-w-2xl px-4">
-      <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 shadow-xl border border-white/20">
+    <div className="fixed bottom-5 right-5 bg-gray-800/80 backdrop-blur-xl text-white p-1 rounded-xl shadow-lg flex flex-col space-y-1 w-64 h-28 border border-gray-700/50 transition-all duration-300">
+      <div className="h-28 backdrop-blur-xl rounded-xl p-2">
         {/* Visualization Bars */}
         <div className="absolute top-0 left-0 w-full h-full flex gap-1.5 justify-center items-end p-4 opacity-50 pointer-events-none">
           {[...Array(20)].map((_, i) => (
             <div 
               key={i}
-              className="w-2 bg-gradient-to-t from-green-400 to-cyan-400 rounded-t"
+              className="w-2 bg-gradient-to-t from-green-400 to-cyan-400 rounded-xl"
               style={{ height: `calc(var(--visualizer-height-${i}) * 100px)` }}
             />
           ))}
         </div>
 
+  {/* Track Info */}
+  <div className="mt-1 text-center">
+          <p className="text-white/90 font-medium truncate">
+            {tracks[currentTrackIndex]?.name}
+          </p>
+        </div>
+
         {/* Controls */}
-        <div className="relative flex items-center justify-between gap-4">
+        <div className="relative flex items-center justify-between">
           <button 
             onClick={() => setCurrentTrackIndex((prev) => (prev - 1 + tracks.length) % tracks.length)}
             className="p-2 hover:bg-white/10 rounded-full transition-all"
@@ -121,7 +128,7 @@ const AudioPlayer = () => {
 
           <button
             onClick={togglePlay}
-            className="p-4 bg-gradient-to-br from-cyan-400 to-green-500 rounded-full shadow-lg hover:scale-105 transition-transform"
+            className="p-2 bg-gradient-to-br from-cyan-400 to-green-500 rounded-full shadow-lg hover:scale-105 transition-transform"
           >
             {isPlaying ? (
               <FaPause className="text-white text-xl" />
@@ -138,15 +145,9 @@ const AudioPlayer = () => {
           </button>
         </div>
 
-        {/* Track Info */}
-        <div className="mt-4 text-center">
-          <p className="text-white/90 font-medium truncate">
-            {tracks[currentTrackIndex]?.name}
-          </p>
-        </div>
-
         {/* Volume Control */}
-        <div className="mt-4 flex items-center gap-2">
+        <div className="mt-2 flex items-center w-full gap-2 justify-center">
+          <FaVolumeUp className="text-white/80" />
           <input
             type="range"
             min="0"
@@ -154,7 +155,7 @@ const AudioPlayer = () => {
             step="0.01"
             value={volume}
             onChange={handleVolume}
-            className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-green-400 rounded-lg appearance-none cursor-pointer"
+            className="w-48 h-1 bg-gradient-to-r from-cyan-400 to-green-500 rounded-lg appearance-none cursor-pointer"
           />
         </div>
 
