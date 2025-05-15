@@ -45,7 +45,7 @@ const Contact = () => {
            <div className="bg-opacity-50 rounded-xl bg-navy p-4 h-[600px] w-[90%] rounded-lg shadow-xl text-left border border-lightest-navy ">
              <h2 className="text-3xl md:text-4xl font-semibold text-lightest-slate mb-8 text-center p-4">Get In Touch</h2>
              {isSubmitted ? (
-                 <p className="text-neon-green text-lg mb-8 text-center rounded-xl p-4">Thank you for your message! I'll get back to you soon.</p>
+                 <p className="text-neon-green text-lg mb-8 text-center rounded-xl p-4">Thank you for your message! I&apos;ll get back to you soon.</p>
              ) : (
              <form onSubmit={handleSubmit} className="space-y-6">
                <div>

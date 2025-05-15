@@ -1,0 +1,27 @@
+# Development files
+.git
+.github
+.vscode
+.idea
+*.log
+*.md
+LICENSE
+README.md
+
+# Test files
+__tests__
+test
+tests
+*.test.js
+*.spec.js
+
+# Build artifacts
+.next/
+out/
+build/
+dist/
+
+# Environment files
+.env.local
+.env.development
+.env.test

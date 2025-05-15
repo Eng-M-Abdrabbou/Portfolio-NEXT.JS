@@ -110,7 +110,7 @@ const Hero = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-base md:text-lg max-w-5xl text-light-slate mb-8"
         >
-         I'm a Full Stack Developer skilled in Java, Python, React, and Node.js. <br />
+         I&apos;m a Full Stack Developer skilled in Java, Python, React, and Node.js. <br />
          I build reliable systems, streamline integrations, and improve performance.
         </motion.p>
         <motion.div
@@ -160,19 +160,19 @@ const Hero = () => {
         <div className="flex flex-row items-center mt-8 space-x-4 pointer-events-auto">
           <div className="cursor-can-hover bg-navy/80 rounded-md p-4 w-1/3 backdrop-blur-lgm border border-lightest-navy/30 hover:border-neon-green rounded-xl">
             <p className="text-neon-green text-center">
-              "The only true wisdom is in knowing you know nothing."
+              &quot;The only true wisdom is in knowing you know nothing.&quot;
               <span className="text-light-slate"> ~ Socrates</span>
             </p>
           </div>
           <div className="cursor-can-hover bg-navy/80 rounded-md p-4 w-1/3 backdrop-blur-lgm border border-lightest-navy/30 hover:border-neon-green rounded-xl">
             <p className="text-neon-green text-center">
-              "How you interpret the world shapes its reality."
+              &quot;How you interpret the world shapes its reality.&quot;
               <span className="text-light-slate"> ~ Mahmoud Abdrabbou</span>
             </p>
           </div>
           <div className="cursor-can-hover bg-navy/80 rounded-md p-4 w-1/3 backdrop-blur-lgm border border-lightest-navy/30 hover:border-neon-green rounded-xl">
             <p className="text-neon-green text-center">
-              "He who has a why to live can bear almost any how."
+              &quot;He who has a why to live can bear almost any how.&quot;
               <span className="text-light-slate"> ~ Friedrich Nietzsche</span>
             </p>
           </div>

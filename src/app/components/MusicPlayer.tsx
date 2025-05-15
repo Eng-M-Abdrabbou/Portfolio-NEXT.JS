@@ -68,7 +68,7 @@ const AudioPlayer = () => {
     return () => {
       sourceRef.current?.disconnect();
     };
-  }, []);
+  }, [tracks, currentTrackIndex]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -94,56 +94,35 @@ const AudioPlayer = () => {
     }
   }, [isSeeking]);
 
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      const audio = audioRef.current;
-      if (!audio) return;
-
-      switch (event.key) {
-        case ' ':
-          event.preventDefault();
-          togglePlay();
-          break;
-        case 'ArrowRight':
-          setCurrentTrackIndex((prev) => (prev + 1) % tracks.length);
-          break;
-        case 'ArrowLeft':
-          setCurrentTrackIndex((prev) => (prev - 1 + tracks.length) % tracks.length);
-          break;
-        case 'ArrowDown':
-          audio.currentTime = Math.max(0, audio.currentTime - 10); // Rewind 10 seconds
-          break;
-        default:
-          break;
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isPlaying, currentTrackIndex, tracks.length]); // Added dependencies
-
-  const visualize = () => {
-    if (!analyserRef.current) return;
-
-    const bufferLength = analyserRef.current.frequencyBinCount;
-    const dataArray = new Uint8Array(bufferLength);
-    analyserRef.current.getByteFrequencyData(dataArray);
-
-    const bars = Array.from({ length: 20 }, (_, i) => {
-      const value = dataArray[i * Math.floor(bufferLength / 20)] / 255;
-      return Math.max(0.1, value);
-    });
-
-    // Update CSS variables for each bar individually
-    bars.forEach((height, i) => {
-      document.documentElement.style.setProperty(`--visualizer-height-${i}`, height.toString());
-    });
-
-    animationRef.current = requestAnimationFrame(visualize);
+  const changeTrack = (newIndex: number) => {
+    setCurrentTrackIndex(newIndex);
   };
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (audio) {
+      if (currentTrackIndex > 0 && isPlaying) {
+        if (audio.readyState >= 2) { 
+          if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
+            audioContextRef.current.resume().then(() => {
+              audio.play().catch(error => console.error("Error playing audio after track change:", error));
+            });
+          } else {
+            audio.play().catch(error => console.error("Error playing audio after track change:", error));
+          }
+        } else {
+          const playWhenReady = () => {
+            audio.play().catch(error => console.error("Error playing audio after track change:", error));
+            audio.removeEventListener('canplay', playWhenReady);
+          };
+          audio.addEventListener('canplay', playWhenReady);
+          return () => {
+            audio.removeEventListener('canplay', playWhenReady);
+          };
+        }
+      }
+    }
+  }, [currentTrackIndex, isPlaying]);
 
   const togglePlay = async () => {
     const audio = audioRef.current;
@@ -164,6 +143,56 @@ const AudioPlayer = () => {
       }
     }
     setIsPlaying(!isPlaying);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      const audio = audioRef.current;
+      if (!audio) return;
+
+      switch (event.key) {
+        case ' ':
+          event.preventDefault();
+          togglePlay();
+          break;
+        case 'ArrowRight':
+          changeTrack((currentTrackIndex + 1) % tracks.length);
+          break;
+        case 'ArrowLeft':
+          changeTrack((currentTrackIndex - 1 + tracks.length) % tracks.length);
+          break;
+        case 'ArrowDown':
+          audio.currentTime = Math.max(0, audio.currentTime - 10); // Rewind 10 seconds
+          break;
+        default:
+          break;
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isPlaying, currentTrackIndex, tracks.length, togglePlay]);
+
+  const visualize = () => {
+    if (!analyserRef.current) return;
+
+    const bufferLength = analyserRef.current.frequencyBinCount;
+    const dataArray = new Uint8Array(bufferLength);
+    analyserRef.current.getByteFrequencyData(dataArray);
+
+    const bars = Array.from({ length: 20 }, (_, i) => {
+      const value = dataArray[i * Math.floor(bufferLength / 20)] / 255;
+      return Math.max(0.1, value);
+    });
+
+    bars.forEach((height, i) => {
+      document.documentElement.style.setProperty(`--visualizer-height-${i}`, height.toString());
+    });
+
+    animationRef.current = requestAnimationFrame(visualize);
   };
 
   const handleVolume = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -199,15 +228,16 @@ const AudioPlayer = () => {
   };
 
   useEffect(() => {
-    if (audioRef.current && audioContextRef.current && audioContextRef.current.state !== 'closed') {
+    if (audioContextRef.current && audioContextRef.current.state !== 'closed') {
       if (isPlaying) {
-        audioRef.current.play().catch(error => console.error("Error playing audio:", error));
         visualize();
+        const interval = setInterval(visualize, 50);
+        return () => clearInterval(interval);
       }
     } else if (isPlaying) {
        console.warn("AudioContext is closed. Cannot load or play new track.");
     }
-  }, [currentTrackIndex, isPlaying]);
+  }, [currentTrackIndex, isPlaying, visualize]);
 
   return (
     <div className="fixed bottom-5 right-5 bg-navy backdrop-blur-sm bg-opacity-10 text-white p-4 rounded-xl shadow-lg flex flex-col space-y-3 w-72 border border-gray-700/50 transition-all duration-300">
@@ -262,7 +292,7 @@ const AudioPlayer = () => {
             {/* Playback Controls */}
             <div className="w-full justify-center mt-3 space-x-6 mr-6">
               <button
-                onClick={() => setCurrentTrackIndex((prev) => (prev - 1 + tracks.length) % tracks.length)}
+                onClick={() => changeTrack((currentTrackIndex - 1 + tracks.length) % tracks.length)}
                 className="p-1 hover:bg-white/10 rounded-full transition-all"
               >
                 <FaBackward className="text-white/80 text-lg" />
@@ -280,7 +310,7 @@ const AudioPlayer = () => {
               </button>
 
               <button
-                onClick={() => setCurrentTrackIndex((prev) => (prev + 1) % tracks.length)}
+                onClick={() => changeTrack((currentTrackIndex + 1) % tracks.length)}
                 className="p-1 hover:bg-white/10 rounded-full transition-all"
               >
                 <FaForward className="text-white/80 text-lg" />
@@ -307,7 +337,7 @@ const AudioPlayer = () => {
         <audio
           ref={audioRef}
           src={tracks[currentTrackIndex]?.file}
-          onEnded={() => setCurrentTrackIndex((prev) => (prev + 1) % tracks.length)}
+          onEnded={() => changeTrack((currentTrackIndex + 1) % tracks.length)}
         />
       </div>
     </div>
