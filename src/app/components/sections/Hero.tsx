@@ -117,45 +117,63 @@ const Hero = () => {
           initial={{ opacity: 1, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="flex space-x-6 mt-4 pointer-events-auto"
+          className="flex space-x-8 mt-8 pointer-events-auto" // Increased space-x for better label spacing
         >
+          {/* GitHub Icon with Label */}
           <a
             href="https://github.com/Eng-M-Abdrabbou"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="GitHub"
-            className="icon-link"
+            aria-label="GitHub profile of Mahmoud Abdrabbou" // More descriptive aria-label
+            className="flex flex-col items-center group" // Group for icon and label
           >
-            <FaGithub />
+            <FaGithub className="icon-link text-3xl group-hover:text-accent-color transition-colors duration-300" />
+            <span className="mt-1 text-xs text-slate group-hover:text-accent-color transition-colors duration-300">
+              GitHub
+            </span>
           </a>
+
+          {/* LinkedIn Icon with Label */}
           <a
             href="https://www.linkedin.com/in/mahmoud-abdrabbou-18b170350/"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="icon-link"
+            aria-label="LinkedIn profile of Mahmoud Abdrabbou"
+            className="flex flex-col items-center group"
           >
-            <FaLinkedin />
+            <FaLinkedin className="icon-link text-3xl group-hover:text-accent-color transition-colors duration-300" />
+            <span className="mt-1 text-xs text-slate group-hover:text-accent-color transition-colors duration-300">
+              LinkedIn
+            </span>
           </a>
+
+          {/* LeetCode Icon with Label */}
           <a
             href="https://leetcode.com/u/MANSAMUSAA/"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="LeetCode"
-            className="icon-link"
+            aria-label="LeetCode profile of Mahmoud Abdrabbou"
+            className="flex flex-col items-center group"
           >
-            <SiLeetcode />
+            <SiLeetcode className="icon-link text-3xl group-hover:text-accent-color transition-colors duration-300" />
+            <span className="mt-1 text-xs text-slate group-hover:text-accent-color transition-colors duration-300">
+              LeetCode
+            </span>
           </a>
+
+          {/* Resume Icon with Label */}
           <a
-            href="/Mahmoud_Abdrabbou_Resume.pdf"
+            href="/Mahmoud_Abdrabbou_Resume.pdf" // Ensure this path is correct
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Resume"
-            className="icon-link"
+            aria-label="Mahmoud Abdrabbou's Resume (PDF)"
+            className="flex flex-col items-center group"
           >
-            <FaFileAlt />
+            <FaFileAlt className="icon-link text-3xl group-hover:text-accent-color transition-colors duration-300" />
+            <span className="mt-1 text-xs text-slate group-hover:text-accent-color transition-colors duration-300">
+              Resume
+            </span>
           </a>
-          {/* --- End Added Resume Link --- */}
         </motion.div>
         <div className="flex flex-row items-center mt-8 space-x-4 pointer-events-auto">
           <div className="cursor-can-hover bg-navy/80 rounded-md p-4 w-1/3 backdrop-blur-lgm border border-lightest-navy/30 hover:border-neon-green rounded-xl">

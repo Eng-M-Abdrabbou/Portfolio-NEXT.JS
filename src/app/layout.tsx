@@ -7,6 +7,7 @@ import ParticleBackground from './components/ParticleBackground';
 import Footer from './components/Footer';
 import CustomElasticCursor from '@/components/CustomElasticCursor'; 
 import MusicPlayer from './components/MusicPlayer'; 
+import Chatbot from "./components/Chatbot"; // Import the Chatbot
 
 const inter = Inter({
   subsets: ["latin"],
@@ -77,13 +78,11 @@ export default function RootLayout({
           <ThemeToggle />
           {children}
           <MusicPlayer /> 
-<div className="w-[85%] mx-auto">
-<Footer />
-
-</div>
-
-
-</div>
+          <Chatbot /> {/* Add the Chatbot component here */}
+          <div className="w-[85%] mx-auto">
+            <Footer />
+          </div>
+        </div>
       </body>
     </html>
   );

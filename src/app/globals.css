@@ -27,7 +27,7 @@
   html[data-theme='light'] {
     --background-color: #f0f2f5; /* Light grey background */
     --text-color: #333; /* Dark text */
-    --heading-color: #1a1a1a; /* Even darker headings */
+    --heading-color: #e3e2e2; /* Even darker headings */
     --accent-color: #007bff; /* Blue accent */
     --card-background: #ffffff; /* White cards */
     --border-color: #ddd; /* Light grey border */
@@ -321,4 +321,20 @@
 
 .animate-visualizer div:nth-child(5) {
   animation-delay: 0.4s;
+}
+
+/* Chatbot specific styles */
+.chatbot-messages::-webkit-scrollbar {
+  width: 6px;
+}
+.chatbot-messages::-webkit-scrollbar-track {
+  background: var(--card-background); /* Or a slightly different shade */
+}
+.chatbot-messages::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 10px;
+  border: 1px solid var(--card-background); /* Match track for seamless look */
+}
+.chatbot-messages::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-color);
 }

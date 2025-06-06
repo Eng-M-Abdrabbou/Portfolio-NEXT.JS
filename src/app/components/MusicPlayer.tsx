@@ -191,10 +191,10 @@ const AudioPlayer = () => {
       if (!audio) return;
 
       switch (event.key) {
-        case ' ':
-          event.preventDefault();
-          togglePlay();
-          break;
+        // case ' ':
+        //   event.preventDefault();
+        //   togglePlay();
+        //   break;
         case 'ArrowRight':
           changeTrack(1); // Adapted to use new changeTrack helper
           break;

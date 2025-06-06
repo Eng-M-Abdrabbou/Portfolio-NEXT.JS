@@ -307,7 +307,7 @@ const Projects = () => {
                     ))}
                   </ul>
                 )}
-
+<br /><br />
                 {selectedProject.title === "BASYS (Biometric Attendance System)" && selectedProject.whyChooseBASYS && (
                   <h4 className="text-lg font-semibold text-neon-green mb-3">Why Choose BASYS (Biometric Attendance System): </h4>
                 )}
@@ -328,7 +328,6 @@ const Projects = () => {
                     ))}
                   </ul>
                 )}
-                
 
                 {selectedProject.title === "VisionAid" && selectedProject.whyVisionAid && (
                   <h4 className="text-lg font-semibold text-neon-green mb-3">Why Choose VisionAid: </h4>
@@ -340,8 +339,7 @@ const Projects = () => {
                     ))}
                   </ul>
                 )}
-
-
+                <br /><br />
                 {selectedProject.Conclusion && (
                   <h4 className="text-lg font-semibold text-neon-green mb-3">Conclusion: </h4>
                 )}
