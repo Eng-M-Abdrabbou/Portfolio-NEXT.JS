@@ -79,7 +79,7 @@ const icons: { [key: string]: React.ReactNode } = {
 
 const projectsData: Project[] = [
   {
-    title: "VisionAid",
+    title: "BlinkAI - VisionAid",
     description: `VisionAid aka blinkAI Companion 👁️ 
 Illuminate the World with Fearless Innovation Built for IEEE 2025, VisionAid Companion is a Flutter-powered lifeline, fusing real-time computer vision with heartfelt design for the visually impaired. 🌍`,
     frontendTags: ["Flutter"],
@@ -292,7 +292,7 @@ const Projects = () => {
                         </a>
                       </Button>
                     )}
-                    {selectedProject.title === "VisionAid" && (
+                    {selectedProject.title === "BlinkAI - VisionAid" && (
                       <Button className='px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-36'
                         asChild
                       >
